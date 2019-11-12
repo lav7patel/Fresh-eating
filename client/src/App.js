@@ -1,8 +1,16 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import API from "./utils/API.js";
 
 class App extends Component {
+  /*  componentDidMount() {
+    API.search("lasagna", "vegan", "peanut")
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => console.log(err));
+  } */
   render() {
     return (
       <div className="App">
