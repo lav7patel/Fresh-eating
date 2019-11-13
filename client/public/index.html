@@ -1,10 +1,22 @@
+<!doctype html>
 <html lang="en">
   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="theme-color" content="#000000">
+      <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+      <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+      <title>Fresh-eating</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/flatly/bootstrap.min.css"/>
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="417042807945-scrqr2m4mbcd532tm67n70fig74cs5j6.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
   </head>
   <body>
+      <noscript>
+          You need to enable JavaScript to run this app.
+        </noscript>
+        <div id="root"></div>
     <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
     <script>
       function onSignIn(googleUser) {
@@ -24,3 +36,5 @@
     </script>
   </body>
 </html>
+
+
