@@ -1,7 +1,10 @@
 const express = require("express");
+const mongojs = require("mongojs");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
+
+//const db = mongojs( need a database URL here)
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
