@@ -13,14 +13,19 @@ const container = {
 };
 class Search extends Component {
   state = {
-    recipes: []
+    recipes: [],
+    searchTerm: ""
+  };
+
+  handleChange = event => {
+    this.setState({ searchTerm: event.target.value });
   };
 
   searchAPI = (query, diets, intolerances) => {
-    API.search("lasagna")
+    API.search(query)
       .then(res => {
         this.setState({ recipes: res.data.results });
-        console.log(this.state.recipes);
+        console.log(res);
       })
       .catch(err => console.log(err));
   };
@@ -28,7 +33,17 @@ class Search extends Component {
   render() {
     return (
       <>
-        <button onClick={() => this.searchAPI()}>Search</button>
+        <input
+          className="form-control"
+          type="text"
+          placeholder="Search for a recipe"
+          name="search"
+          value={this.state.searchTerm}
+          onChange={this.handleChange}
+        />
+        <button onClick={() => this.searchAPI(this.state.searchTerm)}>
+          Search
+        </button>
         <div style={container}>
           {this.state.recipes.length
             ? this.state.recipes.map(thisRecipe => {
