@@ -18,7 +18,9 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-
+app.get("/", (req, res) =>
+  res.sendFile(path.join(__dirname, "./googlea43c6e0b72be7c07.html"))
+);
 // Define API routes here
 app.post("/api/recipe", ({ body }, res) => {
   Recipe.create(body)
