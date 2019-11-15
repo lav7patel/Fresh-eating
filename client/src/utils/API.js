@@ -22,5 +22,11 @@ export default {
         number: "10"
       }
     });
+  },
+  saveRecipe: function(recipe) {
+    return axios.post("/api/recipe", recipe);
+  },
+  getSaved: function() {
+    return axios.get("api/recipe");
   }
 };

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import RecipeCard from "./RecipeCard.js";
 import API from "../utils/API.js";
-// import CheckboxContainer from "./checkboxContainer.js";
 
 const container = {
   width: "100%",
@@ -30,6 +29,23 @@ class Search extends Component {
       .catch(err => console.log(err));
   };
 
+  saveRecipe = recipe => {
+    const recipeForDB = {
+      title: recipe.title,
+      sourceUrl: recipe.sourceUrl,
+      image: recipe.image,
+      sourceName: recipe.sourceName,
+      preptime: recipe.readyInMinutes,
+      servings: recipe.servings,
+      pricePerServing: recipe.pricePerServing,
+      diets: recipe.diets
+    };
+
+    API.saveRecipe(recipeForDB)
+      .then(res => {})
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <>
@@ -47,7 +63,12 @@ class Search extends Component {
         <div style={container}>
           {this.state.recipes.length
             ? this.state.recipes.map(thisRecipe => {
-                return <RecipeCard recipe={thisRecipe} />;
+                return (
+                  <RecipeCard
+                    recipe={thisRecipe}
+                    saveRecipe={this.saveRecipe}
+                  />
+                );
               })
             : null}
         </div>

@@ -32,14 +32,8 @@ function RecipeCard(props) {
           </ul>
         </div>
         <div>
-          <ul>
-            {props.recipe.cuisines.length
-              ? props.recipe.cuisines.map(cuisine => {
-                  return <li>{cuisine}</li>;
-                })
-              : null}
-          </ul>
           <p>{props.recipe.sourceName}</p>
+          <button onClick={() => props.saveRecipe(props.recipe)}>Save</button>
         </div>
       </div>
     </div>
