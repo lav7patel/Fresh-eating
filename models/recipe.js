@@ -4,10 +4,10 @@ const { Schema } = mongoose;
 
 const RecipeSchema = new Schema({
   title: String,
-  sourceURL: String,
-  imageURL: String,
-  credit: String,
-  prepTime: Number,
+  sourceUrl: String,
+  image: String,
+  sourceName: String,
+  readyInMinutes: Number,
   servings: Number,
   pricePerServing: Number,
   diets: Array,

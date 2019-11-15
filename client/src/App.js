@@ -5,6 +5,7 @@ import Favorites from "./components/Favorites";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import Search from "./components/Search";
+import Checkbox from "./components/Checkbox";
 
 class App extends Component {
   /*  componentDidMount() {
