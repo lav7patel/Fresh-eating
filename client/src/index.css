@@ -1,4 +1,4 @@
-body {
+ody {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -78,6 +78,7 @@ body {
 .checkbox{
   padding: 1em;
   background-color: #ffffffa8;
+  widtch: 50%
 }
 input{
   padding: 1em;

@@ -14,86 +14,88 @@ const container = {
   flexDirection: "row"
 };
 
-const checkboxes = [
+const dietCheckboxes = [
   {
     name: "Vegan",
-    key: "preferences",
-    label: "Check Box 1"
+    key: "checkBox1",
+    label: "diet"
   },
   {
     name: "Vegetarian",
-    key: "references",
-    label: "Check Box 2"
+    key: "checkBox2",
+    label: "diet"
   },
   {
-    name: "Ovo Vegetarian",
-    key: "references",
-    label: "Check Box 3"
+    name: "Kosher",
+    key: "checkBox3",
+    label: "diet"
   },
   {
-    name: "Lacto Vegetarian",
-    key: "references",
-    label: "Check Box 4"
+    name: "Halaal",
+    key: "checkBox4",
+    label: "diet"
   },
   {
     name: "Pescatarian",
-    key: "references",
-    label: "Check Box 1"
-  },
+    key: "checkBox5",
+    label: "diet"
+  }
+];
+
+const intolerancesCheckboxes = [
   {
     name: "Dairy",
-    key: "restrictions",
+    key: "checkBox6",
     label: "Check Box 2"
   },
   {
     name: "Egg",
-    key: "restrictions",
+    key: "checkBox7",
     label: "Check Box 3"
   },
   {
     name: "Gluten",
-    key: "restrictions",
+    key: "checkBox8",
     label: "Check Box 4"
   },
   {
     name: "Peanut",
-    key: "restrictions",
+    key: "checkBox9",
     label: "Check Box 1"
   },
   {
     name: "Sesame",
-    key: "restrictions",
+    key: "checkBox10",
     label: "Check Box 2"
   },
   {
     name: "Seafood",
-    key: "restrictions",
+    key: "checkBox11",
     label: "Check Box 3"
   },
   {
     name: "Shellfish",
-    key: "restrictions",
-    label: "Check Box 4"
+    key: "checkBox12"
   },
   {
     name: "Soy",
-    key: "restrictions",
+    key: "checkBox13",
     label: "Check Box 4"
   },
 
   {
     name: "Sulfite",
-    key: "restrictions",
+    key: "checkBox14",
     label: "Check Box 4"
   },
   {
     name: "Tree Nuts",
-    key: "restrictions",
+    key: "checkBox15",
     label: "Check Box 4"
   },
   {
     name: "Wheat",
-    key: "restrictions",
+    key: "checkBox16",
     label: "Check Box 4"
   }
 ];
@@ -106,11 +108,16 @@ class Search extends React.Component {
 
     this.state = {
       showActionFilterList: false,
-      checkedItems: new Map(),
-      recipes: []
+      checkedDiets: new Map(),
+      checkedIntolerances: new Map(),
+      recipes: [],
+      searchTerm: ""
     };
 
-    this.handleCheckChange = this.handleCheckChange.bind(this);
+    this.handleDietCheckChange = this.handleDietCheckChange.bind(this);
+    this.handleIntoleranceCheckChange = this.handleIntoleranceCheckChange.bind(
+      this
+    );
   }
 
   showList = () =>
@@ -118,12 +125,22 @@ class Search extends React.Component {
       showActionFilterList: !prevState.showActionFilterList
     }));
 
-  handleCheckChange(e) {
+  handleDietCheckChange(e) {
     const item = e.target.name;
     const isChecked = e.target.checked;
     this.setState(prevState => ({
-      checkedItems: prevState.checkedItems.set(item, isChecked)
+      checkedDiets: prevState.checkedDiets.set(item, isChecked)
     }));
+    console.log(this.state.checkedDiets);
+  }
+
+  handleIntoleranceCheckChange(e) {
+    const item = e.target.name;
+    const isChecked = e.target.checked;
+    this.setState(prevState => ({
+      checkedIntolerances: prevState.checkedIntolerances.set(item, isChecked)
+    }));
+    console.log(this.state.checkedIntolerances);
   }
 
   handleChange = event => {
@@ -131,7 +148,7 @@ class Search extends React.Component {
   };
 
   searchAPI = (query, diets, intolerances) => {
-    API.search(query)
+    API.search(query, diets, intolerances)
       .then(res => {
         this.setState({ recipes: res.data.results });
         console.log(res);
@@ -139,12 +156,43 @@ class Search extends React.Component {
       .catch(err => console.log(err));
   };
 
+  searchClick = () => {
+    const query = this.state.searchTerm;
+    let diets = "";
+    let intolerances = "";
+    for (let key of this.state.checkedDiets.keys()) {
+      diets += `${key},`;
+    }
+    for (let key of this.state.checkedIntolerances.keys()) {
+      intolerances += `${key},`;
+    }
+
+    this.searchAPI(query, diets, intolerances);
+    console.log(diets);
+  };
+
+  saveRecipe = recipe => {
+    const recipeForDB = {
+      title: recipe.title,
+      sourceUrl: recipe.sourceUrl,
+      image: recipe.image,
+      sourceName: recipe.sourceName,
+      preptime: recipe.readyInMinutes,
+      servings: recipe.servings,
+      pricePerServing: recipe.pricePerServing,
+      diets: recipe.diets
+    };
+
+    API.saveRecipe(recipeForDB)
+      .then(res => {})
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <>
-
-      <br />
-          <div className="jumbotron jumbotron-fluid">
+        <br />
+        <div className="jumbotron jumbotron-fluid">
                 <div className="container">
                   <h1 className="display-4">Fresh-Eating</h1>
                   <input
@@ -155,40 +203,50 @@ class Search extends React.Component {
                   value={this.state.searchTerm}
                   onChange={this.handleChange}
                 />
-            
-            <div className= "checkbox">
-              <div class="row">
-                 <div class="column"></div>
-                 {this.key}
-                <div class="column"></div>
-              </div>
-                {checkboxes.map(item => (
-                  <label key={item.key}>
-                    {item.name}
-                    <Checkbox
-                    checked={this.state.checkedItems.get(item.name)}
-                      name={item.name}
-                      onChange={this.handleCheckChange}
-                    />
-                  </label>
-                ))}
-            </div>
-            <button onClick={() => this.searchAPI(this.state.searchTerm)}>
-                <i class="fa fa-search"></i> Search 
-                </button>
-                 
-              </div>
-                <div style={container}>
-                  {this.state.recipes.length
-                    ? this.state.recipes.map(thisRecipe => {
-                        return <RecipeCard recipe={thisRecipe} />;
-                      })
-                    : null}
-                </div>
+           </div>
+        <div className="checkbox">
+          {dietCheckboxes.map(item => (
+            <label key={item.key}>
+              {item.name}
+              <Checkbox
+                checked={this.state.checkedDiets.get(item.name)}
+                name={item.name}
+                onChange={this.handleDietCheckChange}
+              />
+            </label>
+          ))}
+          
+          {intolerancesCheckboxes.map(item => (
+            <label key={item.key}>
+              {item.name}
+              <Checkbox
+                checked={this.state.checkedIntolerances.get(item.name)}
+                name={item.name}
+                onChange={this.handleIntoleranceCheckChange}
+              />
+            </label>
+          ))}
           </div>
+          <button onClick={() => this.searchClick()}>
+            <i class="fa fa-search"></i> Search
+          </button>
+          <div style={container}>
+            {this.state.recipes.length
+              ? this.state.recipes.map(thisRecipe => {
+                  return (
+                    <RecipeCard
+                      recipe={thisRecipe}
+                      saveRecipe={this.saveRecipe}
+                    />
+                  );
+                })
+              : null}
+          </div>
+       </div>
       </>
-    )
+    );
   }
 }
 
 export default Search;
+
