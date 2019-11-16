@@ -17,83 +17,83 @@ const container = {
 const checkboxes = [
   {
     name: "Vegan",
-    key: "checkBox1",
+    key: "preferences",
     label: "Check Box 1"
   },
   {
     name: "Vegetarian",
-    key: "checkBox2",
+    key: "references",
     label: "Check Box 2"
   },
   {
-    name: "Kosher",
-    key: "checkBox3",
+    name: "Ovo Vegetarian",
+    key: "references",
     label: "Check Box 3"
   },
   {
-    name: "Halaal",
-    key: "checkBox4",
+    name: "Lacto Vegetarian",
+    key: "references",
     label: "Check Box 4"
   },
   {
     name: "Pescatarian",
-    key: "checkBox1",
+    key: "references",
     label: "Check Box 1"
   },
   {
     name: "Dairy",
-    key: "checkBox2",
+    key: "restrictions",
     label: "Check Box 2"
   },
   {
     name: "Egg",
-    key: "checkBox3",
+    key: "restrictions",
     label: "Check Box 3"
   },
   {
     name: "Gluten",
-    key: "checkBox4",
+    key: "restrictions",
     label: "Check Box 4"
   },
   {
     name: "Peanut",
-    key: "checkBox1",
+    key: "restrictions",
     label: "Check Box 1"
   },
   {
     name: "Sesame",
-    key: "checkBox2",
+    key: "restrictions",
     label: "Check Box 2"
   },
   {
     name: "Seafood",
-    key: "checkBox3",
+    key: "restrictions",
     label: "Check Box 3"
   },
   {
     name: "Shellfish",
-    key: "checkBox4",
+    key: "restrictions",
     label: "Check Box 4"
   },
   {
     name: "Soy",
-    key: "checkBox4",
+    key: "restrictions",
     label: "Check Box 4"
   },
 
   {
     name: "Sulfite",
-    key: "checkBox4",
+    key: "restrictions",
     label: "Check Box 4"
   },
   {
     name: "Tree Nuts",
-    key: "checkBox4",
+    key: "restrictions",
     label: "Check Box 4"
   },
   {
     name: "Wheat",
-    key: "checkBox4",
+    key: "restrictions",
     label: "Check Box 4"
   }
 ];
@@ -144,36 +144,48 @@ class Search extends React.Component {
       <>
 
       <br />
-        <div className= "search-box">
-        {checkboxes.map(item => (
-          <label key={item.key}>
-            {item.name}
-            <Checkbox
-             checked={this.state.checkedItems.get(item.name)}
-              name={item.name}
-              onChange={this.handleCheckChange}
-            />
-          </label>
-        ))}
-          <input
-          className="form-control"
-          type="text"
-          placeholder="Search for a recipe"
-          name="search"
-          value={this.state.searchTerm}
-          onChange={this.handleChange}
-        />
-        <button onClick={() => this.searchAPI(this.state.searchTerm)}>
-        <i class="fa fa-search"></i> Search 
-        </button>
-         <div style={container}>
-          {this.state.recipes.length
-            ? this.state.recipes.map(thisRecipe => {
-                return <RecipeCard recipe={thisRecipe} />;
-              })
-            : null}
-         </div>
-      </div>
+          <div className="jumbotron jumbotron-fluid">
+                <div className="container">
+                  <h1 className="display-4">Fresh-Eating</h1>
+                  <input
+                  className="form-control"
+                  type="text"
+                  placeholder="Search for a recipe"
+                  name="search"
+                  value={this.state.searchTerm}
+                  onChange={this.handleChange}
+                />
+            
+            <div className= "checkbox">
+              <div class="row">
+                 <div class="column"></div>
+                 {this.key}
+                <div class="column"></div>
+              </div>
+                {checkboxes.map(item => (
+                  <label key={item.key}>
+                    {item.name}
+                    <Checkbox
+                    checked={this.state.checkedItems.get(item.name)}
+                      name={item.name}
+                      onChange={this.handleCheckChange}
+                    />
+                  </label>
+                ))}
+            </div>
+            <button onClick={() => this.searchAPI(this.state.searchTerm)}>
+                <i class="fa fa-search"></i> Search 
+                </button>
+                 
+              </div>
+                <div style={container}>
+                  {this.state.recipes.length
+                    ? this.state.recipes.map(thisRecipe => {
+                        return <RecipeCard recipe={thisRecipe} />;
+                      })
+                    : null}
+                </div>
+          </div>
       </>
     )
   }
