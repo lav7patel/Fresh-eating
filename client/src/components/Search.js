@@ -143,8 +143,8 @@ class Search extends React.Component {
     return (
       <>
 
-        <br />
-        <div className= "check-boxes">
+      <br />
+        <div className= "search-box">
         {checkboxes.map(item => (
           <label key={item.key}>
             {item.name}
@@ -164,16 +164,16 @@ class Search extends React.Component {
           onChange={this.handleChange}
         />
         <button onClick={() => this.searchAPI(this.state.searchTerm)}>
-          Search
+        <i class="fa fa-search"></i> Search 
         </button>
-        {/* <<div style={container}>*/}
+         <div style={container}>
           {this.state.recipes.length
             ? this.state.recipes.map(thisRecipe => {
                 return <RecipeCard recipe={thisRecipe} />;
               })
             : null}
-       {/* </div>*/}
-     </div>
+         </div>
+      </div>
       </>
     )
   }
