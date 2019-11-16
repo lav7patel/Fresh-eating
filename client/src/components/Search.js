@@ -1,69 +1,4 @@
-/*
-class Search extends Component{
-  constructor (props){
-    super (props);
-    this.state= {
-    'dietaryRestrictions':{
 
-      'Vegan' : false ,
-      'Vegetarian': false,
-      'Kosher': false,
-      'Halaal': false,
-      'Pescatarian': false,
-      'Dairy': false,
-      'Egg': false,
-      'Gluten': false,
-      'Peanut': false,
-      'Sesame': false,
-      'Seafood': false,
-      'Shellfish': false,
-      'Soy': false,
-      'Sulfite': false,
-      'Tree Nuts': false,
-      'Wheat': false,
-   },
-  }
-}
-    
-
-render(){
-  return(
-    <form onSubmit={this.onFormSubmit.bind(this)}>
-      {this.renderDietaryRestrictions()}
-      <input type="submit" value ="Save Dietary Restrictons"/>
-    </form>
-
-  )
-  }
-renderDietaryRestrictions(){
-  const restrictions=['Vegan', 'Vegetarian','Kosher','Halaal','Pescatarian','Dairy','Egg','Gluten','Peanut','Sesame','Seafood',
-  'Shellfish','Soy','Sulfite','Tree Nuts','Wheat'];
-  return restrictions.map((restrictions,i) =>{
-    return(
-      <label key={i}>
-        {restrictions}
-        <input
-        type="checkox"
-        name = {restrictions}
-        onChange= {this.onRestrictions.bind(this)}
-        value ={this.state.dietaryRestrictions[restrictions]}
-        />
-        </label>
-
-    )} 
-   )}
-  onRestrictions(e){
-    const val=e.target.checked;
-    const name=e.target.name;
-    let updatedRestrictions= Object.assign({}, this.state.restrictions,{[name]: val})
-    this.setState({
-      'restrictions': updatedRestrictions
-    })
-  }
-  onFormSubmit(e){e.preventDefault()
-  return(this.state.dietaryRestrictions);
-    }
-  }; */
 import { Component } from "react";
 import Checkbox from "./Checkbox";
 import React from "react";
@@ -207,7 +142,20 @@ class Search extends React.Component {
   render() {
     return (
       <>
-        <input
+
+        <br />
+        <div className= "check-boxes">
+        {checkboxes.map(item => (
+          <label key={item.key}>
+            {item.name}
+            <Checkbox
+             checked={this.state.checkedItems.get(item.name)}
+              name={item.name}
+              onChange={this.handleCheckChange}
+            />
+          </label>
+        ))}
+          <input
           className="form-control"
           type="text"
           placeholder="Search for a recipe"
@@ -218,26 +166,16 @@ class Search extends React.Component {
         <button onClick={() => this.searchAPI(this.state.searchTerm)}>
           Search
         </button>
-        <br />
-        {checkboxes.map(item => (
-          <label key={item.key}>
-            {item.name}
-            <Checkbox
-              name={item.name}
-              checked={this.state.checkedItems.get(item.name)}
-              onChange={this.handleCheckChange}
-            />
-          </label>
-        ))}
-        <div style={container}>
+        {/* <<div style={container}>*/}
           {this.state.recipes.length
             ? this.state.recipes.map(thisRecipe => {
                 return <RecipeCard recipe={thisRecipe} />;
               })
             : null}
-        </div>
+       {/* </div>*/}
+     </div>
       </>
-    );
+    )
   }
 }
 
