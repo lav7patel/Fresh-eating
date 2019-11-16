@@ -71,3 +71,15 @@ body {
   border-style: solid;
 
 }
+
+.check-boxes{
+  border-style: solid;
+  padding: 1em;
+}
+input{
+  padding: 1em;
+}
+
+label{
+  padding-right: .75em;
+}
