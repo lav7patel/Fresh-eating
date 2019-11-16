@@ -47,7 +47,6 @@ app.get("/", (req, res) =>
 
 // Define API routes here
 app.post("/api/recipe", ({ body, user }, res) => {
-  console.log(user);
   Recipe.create(body)
     .then(({ _id }) =>
       User.findOneAndUpdate(
@@ -65,13 +64,19 @@ app.post("/api/recipe", ({ body, user }, res) => {
 });
 
 app.get("/api/recipe", (req, res) => {
-  Recipe.find({})
-    .then(dbRecipe => {
-      res.json(dbRecipe);
-    })
-    .catch(err => {
-      res.status(400).json(err);
-    });
+  if (!req.user) {
+    res.json("error");
+  } else {
+    const user = req.user.username;
+    User.find({ username: user })
+      .populate("recipes")
+      .then(dbRecipe => {
+        res.json(dbRecipe);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  }
 });
 
 // login routes
