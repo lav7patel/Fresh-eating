@@ -170,6 +170,23 @@ class Search extends React.Component {
     console.log(diets);
   };
 
+  saveRecipe = recipe => {
+    const recipeForDB = {
+      title: recipe.title,
+      sourceUrl: recipe.sourceUrl,
+      image: recipe.image,
+      sourceName: recipe.sourceName,
+      preptime: recipe.readyInMinutes,
+      servings: recipe.servings,
+      pricePerServing: recipe.pricePerServing,
+      diets: recipe.diets
+    };
+
+    API.saveRecipe(recipeForDB)
+      .then(res => {})
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <>
@@ -204,18 +221,21 @@ class Search extends React.Component {
             onChange={this.handleChange}
           />
           <button onClick={() => this.searchClick()}>
-            <i class="fa fa-search"></i> Search 
-            </button>
+            <i class="fa fa-search"></i> Search
+          </button>
           <div style={container}>
-
-          {this.state.recipes.length
-            ? this.state.recipes.map(thisRecipe => {
-                return <RecipeCard recipe={thisRecipe} />;
-              })
-            : null}
+            {this.state.recipes.length
+              ? this.state.recipes.map(thisRecipe => {
+                  return (
+                    <RecipeCard
+                      recipe={thisRecipe}
+                      saveRecipe={this.saveRecipe}
+                    />
+                  );
+                })
+              : null}
           </div>
         </div>
-
       </>
     );
   }
