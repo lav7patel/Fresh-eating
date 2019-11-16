@@ -174,14 +174,13 @@ class Search extends React.Component {
     return (
       <>
         <br />
-        <div className="check-boxes">
+        <div className="search-box">
           {dietCheckboxes.map(item => (
             <label key={item.key}>
               {item.name}
               <Checkbox
                 checked={this.state.checkedDiets.get(item.name)}
                 name={item.name}
-                label={item.label}
                 onChange={this.handleDietCheckChange}
               />
             </label>
@@ -192,7 +191,6 @@ class Search extends React.Component {
               <Checkbox
                 checked={this.state.checkedIntolerances.get(item.name)}
                 name={item.name}
-                label={item.label}
                 onChange={this.handleIntoleranceCheckChange}
               />
             </label>
@@ -205,15 +203,19 @@ class Search extends React.Component {
             value={this.state.searchTerm}
             onChange={this.handleChange}
           />
-          <button onClick={() => this.searchClick()}>Search</button>
-          {/* <<div style={container}>*/}
+          <button onClick={() => this.searchClick()}>
+            <i class="fa fa-search"></i> Search 
+            </button>
+          <div style={container}>
+
           {this.state.recipes.length
             ? this.state.recipes.map(thisRecipe => {
                 return <RecipeCard recipe={thisRecipe} />;
               })
             : null}
-          {/* </div>*/}
+          </div>
         </div>
+
       </>
     );
   }
