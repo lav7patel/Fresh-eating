@@ -5,17 +5,8 @@ import Favorites from "./components/Favorites";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import Search from "./components/Search";
-import Checkbox from "./components/Checkbox";
 
 class App extends Component {
-  /*  componentDidMount() {
-    API.search("lasagna", "vegan", "peanut")
-      .then(res => {
-        console.log(res);
-      })
-      .catch(err => console.log(err));
-  } */
-
   render() {
     return (
       <Router>
