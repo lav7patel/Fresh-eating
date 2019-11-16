@@ -109,7 +109,8 @@ class Search extends React.Component {
       showActionFilterList: false,
       checkedDiets: new Map(),
       checkedIntolerances: new Map(),
-      recipes: []
+      recipes: [],
+      searchTerm: ""
     };
 
     this.handleDietCheckChange = this.handleDietCheckChange.bind(this);
@@ -146,7 +147,7 @@ class Search extends React.Component {
   };
 
   searchAPI = (query, diets, intolerances) => {
-    API.search(query)
+    API.search(query, diets, intolerances)
       .then(res => {
         this.setState({ recipes: res.data.results });
         console.log(res);
@@ -155,7 +156,18 @@ class Search extends React.Component {
   };
 
   searchClick = () => {
-    const query = this.state.query;
+    const query = this.state.searchTerm;
+    let diets = "";
+    let intolerances = "";
+    for (let key of this.state.checkedDiets.keys()) {
+      diets += `${key},`;
+    }
+    for (let key of this.state.checkedIntolerances.keys()) {
+      intolerances += `${key},`;
+    }
+
+    this.searchAPI(query, diets, intolerances);
+    console.log(diets);
   };
 
   render() {
