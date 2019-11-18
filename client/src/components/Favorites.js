@@ -17,7 +17,11 @@ function Favorites(props) {
   const getSavedRecipes = () => {
     API.getSaved()
       .then(res => {
-        setRecipes(res.data);
+        if (res.data !== "error") {
+          setRecipes(res.data.recipes);
+        }
+
+        console.log(res.data);
       })
       .catch(err => console.log(err));
   };
