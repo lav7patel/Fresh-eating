@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 
 const card = {
   width: "48%",
-  backgroundColor: "green"
+  backgroundColor: "#2b0c064a;",
+  border: "solid",
+  color:"black"
+
 };
 
 const cardContents = {

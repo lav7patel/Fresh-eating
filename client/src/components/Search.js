@@ -190,6 +190,7 @@ class Search extends React.Component {
   render() {
     return (
       <>
+      <div className="searchbox">
         <div className="jumbotron jumbotron-fluid">
           <div className="container">
               <h1 className="display-4">Fresh-Eating</h1>
@@ -232,14 +233,15 @@ class Search extends React.Component {
                             </label>
                           ))}
                         </div>
-                  </div>
-                
-            </div>
-          
-            <button onClick={() => this.searchClick()}>
-              <i class="fa fa-search"></i> Search
-            </button>
-            </div>
+                    </div>
+                </div>
+                  <button onClick={() => this.searchClick()}>
+                  <i class="fa fa-search"></i> Search
+                </button>
+              </div>
+ 
+          </div>
+        </div>
           <div style={container}>
               {this.state.recipes.length
                 ? this.state.recipes.map(thisRecipe => {
@@ -251,9 +253,9 @@ class Search extends React.Component {
                     );
                   })
                 : null}
-              </div>
             </div>
-          </div> 
+            
+      </div>
 
       </>
     );
