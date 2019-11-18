@@ -219,7 +219,7 @@ class Search extends React.Component {
                       ))}
                       </div>
                     </div>
-                    <div class="col-5">
+                    <div class="col-6">
                       <h2> Intolerances </h2>
                         <div className="intolerance-boxes">
                           {intolerancesCheckboxes.map(item => (

@@ -4,7 +4,10 @@ const card = {
   width: "48%",
   backgroundColor: "#2b0c064a;",
   border: "solid",
-  color:"black"
+  color:"black",
+  border: "1px solid",
+  padding:" 10px",
+  boxShadow: "5px 10px 18px #888888"
 
 };
 
@@ -35,8 +38,8 @@ function RecipeCard(props) {
           </ul>
         </div>
         <div>
-          <p>{props.recipe.sourceName}</p>
-          <button onClick={() => props.saveRecipe(props.recipe)}>Save</button>
+          <p>Source: {props.recipe.sourceName}</p>
+          <button onClick={() => props.saveRecipe(props.recipe)}>Save to Favorites</button>
         </div>
       </div>
     </div>

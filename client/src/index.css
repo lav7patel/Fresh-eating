@@ -17,7 +17,7 @@ body {
 }
 
 .topnav a {
-  font-size: 16px;
+  font-size: 20px;
   color: white;
   text-align: center;
   padding: 12px;
@@ -133,20 +133,19 @@ button{
 
   margin-left: 1em;
   padding-left: 1em;
-  /*background-color:#2b0c064a;*/
 
   
 }
 .intolerance-boxes{
   margin-left: 2em;
   padding-left: 1em;
-  background-color:#2b0c064a;
 }
 h2{
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   font-size: 1.5em;
-  /*background-color:#2b0c064a;*/
+  background-color:#2b0c064a;
+  border: solid;
 }
 
 a{
