@@ -5,7 +5,7 @@ import RecipeCard from "./RecipeCard.js";
 const container = {
   width: "100%",
   height: "100%",
-  display: "flex",
+  
   justifyContent: "space-around",
   flexWrap: "wrap",
   flexDirection: "row"
