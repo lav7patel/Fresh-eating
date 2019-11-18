@@ -1,4 +1,3 @@
-
 import { Component } from "react";
 import Checkbox from "./Checkbox";
 import React from "react";
@@ -255,6 +254,7 @@ class Search extends React.Component {
               </div>
             </div>
           </div> 
+
       </>
     );
   }
