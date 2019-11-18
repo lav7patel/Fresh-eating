@@ -10,7 +10,7 @@ body {
 
 .topnav {
   overflow: hidden;
-  background-color: #268887;
+  background-image: linear-gradient(#2c2b2b,#268887);
   padding: 0;
   margin:0;
   
@@ -74,7 +74,7 @@ body {
 
 .container{
   border-style: none;
-  border-color:#24213a;
+  border-color: black;
   width: 40%;
   padding: 0;
 
@@ -119,8 +119,13 @@ h1{
   background-color: white;
   color: black;
 }
-button{
+.button{
   font: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  
 }
 .dispay-4{
   margin-right:0;
@@ -131,8 +136,9 @@ button{
 
 .diet-boxes{
 
-  margin-left: 1em;
-  padding-left: 1em;
+  margin-left: 2 em;
+  padding-left: 2 em;
+
 
   
 }
@@ -144,13 +150,31 @@ h2{
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   font-size: 1.5em;
-  background-color:#2b0c064a;
+  background-color:#7059545c;
   border: solid;
+  opacity:1; 
+  margin-left: 1em;
+}
+h3{
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 1.5em;
+  background-color:#7059545c;
+  border: solid;
+  opacity:1; 
+  margin-left: 1em;
 }
 
 a{
-  color: #268887;
+  color: black;
 }
 p{
   margin-inline-end: 1em;
+}
+img {
+  padding-left: 1em;
+}
+.searchbox{
+  color: rgb((0,0,0,0));
+  opacity: 1;
 }
