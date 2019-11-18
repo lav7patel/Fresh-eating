@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 import Search  from './Search';
 function Navbar(props) {
   return (
-      <div className= "mainbar">
-        <div class="navbar">
+        <div className="navbar">
           <a href="/">Search</a>
           <a href="/favorites"><i class="fa fa-star"></i>Favorites</a>
         </div>
-      </div>
     );
   
   //<div> Navbar </div>;
