@@ -191,7 +191,7 @@ class Search extends React.Component {
     return (
       <>
       <div className="searchbox">
-        <div className="jumbotron jumbotron-fluid">
+        <div className="jumbotron jumbotron-fluid" >
           <div className="container">
               <h1 className="display-4">Fresh-Eating</h1>
               <input
@@ -205,7 +205,7 @@ class Search extends React.Component {
                 <div className="checkbox">
                   <div className="row">
                     <div className="col-5">
-                    <h2> Diet </h2>
+                    <h3> Diet </h3>
                       <div className="diet-boxes">
                         {dietCheckboxes.map(item => (
                           <label key={item.key}>
@@ -220,7 +220,7 @@ class Search extends React.Component {
                       </div>
                     </div>
                     <div class="col-6">
-                      <h2> Intolerances </h2>
+                      <h3> Restrictions </h3>
                         <div className="intolerance-boxes">
                           {intolerancesCheckboxes.map(item => (
                             <label key={item.key}>
@@ -235,9 +235,11 @@ class Search extends React.Component {
                         </div>
                     </div>
                 </div>
+                <div className="button">
                   <button onClick={() => this.searchClick()}>
                   <i class="fa fa-search"></i> Search
                 </button>
+                </div>
               </div>
  
           </div>
