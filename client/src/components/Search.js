@@ -25,12 +25,12 @@ const dietCheckboxes = [
     label: "diet"
   },
   {
-    name: "Kosher",
+    name: "Lacto Vegetarian",
     key: "checkBox3",
     label: "diet"
   },
   {
-    name: "Halaal",
+    name: "Ovo Vegetarian",
     key: "checkBox4",
     label: "diet"
   },
@@ -190,52 +190,73 @@ class Search extends React.Component {
   render() {
     return (
       <>
-        <br />
-        <div className="search-box">
-          {dietCheckboxes.map(item => (
-            <label key={item.key}>
-              {item.name}
-              <Checkbox
-                checked={this.state.checkedDiets.get(item.name)}
-                name={item.name}
-                onChange={this.handleDietCheckChange}
+      <div className="searchbox">
+        <div className="jumbotron jumbotron-fluid">
+          <div className="container">
+              <h1 className="display-4">Fresh-Eating</h1>
+              <input
+                className="form-control"
+                type="text"
+                placeholder="Search for a recipe"
+                name="search"
+                value={this.state.searchTerm}
+                onChange={this.handleChange}
               />
-            </label>
-          ))}
-          {intolerancesCheckboxes.map(item => (
-            <label key={item.key}>
-              {item.name}
-              <Checkbox
-                checked={this.state.checkedIntolerances.get(item.name)}
-                name={item.name}
-                onChange={this.handleIntoleranceCheckChange}
-              />
-            </label>
-          ))}
-          <input
-            className="form-control"
-            type="text"
-            placeholder="Search for a recipe"
-            name="search"
-            value={this.state.searchTerm}
-            onChange={this.handleChange}
-          />
-          <button onClick={() => this.searchClick()}>
-            <i class="fa fa-search"></i> Search
-          </button>
-          <div style={container}>
-            {this.state.recipes.length
-              ? this.state.recipes.map(thisRecipe => {
-                  return (
-                    <RecipeCard
-                      recipe={thisRecipe}
-                      saveRecipe={this.saveRecipe}
-                    />
-                  );
-                })
-              : null}
+                <div className="checkbox">
+                  <div className="row">
+                    <div className="col-5">
+                    <h2> Diet </h2>
+                      <div className="diet-boxes">
+                        {dietCheckboxes.map(item => (
+                          <label key={item.key}>
+                          {item.name}
+                            <Checkbox
+                              checked={this.state.checkedDiets.get(item.name)}
+                              name={item.name}
+                              onChange={this.handleDietCheckChange}
+                            />
+                          </label>
+                      ))}
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <h2> Intolerances </h2>
+                        <div className="intolerance-boxes">
+                          {intolerancesCheckboxes.map(item => (
+                            <label key={item.key}>
+                              {item.name}
+                              <Checkbox
+                                checked={this.state.checkedIntolerances.get(item.name)}
+                                name={item.name}
+                                onChange={this.handleIntoleranceCheckChange}
+                            />
+                            </label>
+                          ))}
+                        </div>
+                    </div>
+                </div>
+                  <button onClick={() => this.searchClick()}>
+                  <i class="fa fa-search"></i> Search
+                </button>
+              </div>
+ 
           </div>
         </div>
+          <div style={container}>
+              {this.state.recipes.length
+                ? this.state.recipes.map(thisRecipe => {
+                    return (
+                      <RecipeCard
+                        recipe={thisRecipe}
+                        saveRecipe={this.saveRecipe}
+                      />
+                    );
+                  })
+                : null}
+            </div>
+            
+      </div>
+
       </>
     );
   }

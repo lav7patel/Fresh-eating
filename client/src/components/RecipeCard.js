@@ -2,7 +2,13 @@ import React, { useState, useEffect } from "react";
 
 const card = {
   width: "48%",
-  backgroundColor: "green"
+  backgroundColor: "#2b0c064a;",
+  border: "solid",
+  color:"black",
+  border: "1px solid",
+  padding:" 10px",
+  boxShadow: "5px 10px 18px #888888"
+
 };
 
 const cardContents = {
@@ -32,8 +38,8 @@ function RecipeCard(props) {
           </ul>
         </div>
         <div>
-          <p>{props.recipe.sourceName}</p>
-          <button onClick={() => props.saveRecipe(props.recipe)}>Save</button>
+          <p>Source: {props.recipe.sourceName}</p>
+          <button onClick={() => props.saveRecipe(props.recipe)}>Save to Favorites</button>
         </div>
       </div>
     </div>
