@@ -175,4 +175,9 @@ img {
 .searchbox{
   color: rgb((0,0,0,0));
   opacity: 1;
+  text-align: center;
+}
+.row{
+  margin-right: -15px;
+  margin-left: 10px;
 }
