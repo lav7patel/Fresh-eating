@@ -151,7 +151,7 @@ app.get("/user", (req, res) => {
 // Endpoint to logout
 app.get("/logout", (req, res) => {
   req.logout();
-  res.render("home");
+  res.json("logged out");
 });
 
 // Send every other request to the React app

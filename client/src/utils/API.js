@@ -28,5 +28,16 @@ export default {
   },
   getSaved: function() {
     return axios.get("api/recipe");
+  },
+  // send it username, password, password2
+  registerUser: function(userData) {
+    return axios.post("/register", userData);
+  },
+  // send username and password
+  login: function(userData) {
+    return axios.post("/login", userData);
+  },
+  logout: function() {
+    return axios.get("/logout");
   }
 };
