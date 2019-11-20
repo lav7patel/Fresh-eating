@@ -79,6 +79,21 @@ app.get("/api/recipe", (req, res) => {
   }
 });
 
+app.post("/api/category", ({ body, user }, res) => {
+  User.findOneAndUpdate(
+    { username: user.username },
+    { $push: { categories: body.category } },
+    { new: true }
+  )
+    .select("-password")
+    .then(dbUser => {
+      res.json(dbUser);
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+});
+
 // login routes
 passport.use(
   new LocalStrategy((username, password, done) => {
