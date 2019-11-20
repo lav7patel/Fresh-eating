@@ -113,22 +113,29 @@ app.post("/register", (req, res) => {
   const { password } = req.body;
   const { password2 } = req.body;
 
-  if (password == password2) {
-    const newUser = new User({
-      username: req.body.username,
-      password: req.body.password
-    });
+  User.getUserByUsername(req.body.username, (err, user) => {
+    if (err) throw err;
+    if (user) {
+      return res.json("User already exists");
+    } else {
+      if (password == password2) {
+        const newUser = new User({
+          username: req.body.username,
+          password: req.body.password
+        });
 
-    User.createUser(newUser, (err, user) => {
-      if (err) throw err;
-      res.send(user).end();
-    });
-  } else {
-    res
-      .status(500)
-      .send('{errors: "Passwords don\'t match"}')
-      .end();
-  }
+        User.createUser(newUser, (err, user) => {
+          if (err) throw err;
+          res.send(user).end();
+        });
+      } else {
+        res
+          .status(500)
+          .send('{errors: "Passwords don\'t match"}')
+          .end();
+      }
+    }
+  });
 });
 
 // Endpoint to login
