@@ -153,6 +153,7 @@ class Search extends React.Component {
       diets: recipe.diets
     };
 
+    console.log(recipeForDB);
     API.saveRecipe(recipeForDB)
       .then(res => {})
       .catch(err => console.log(err));

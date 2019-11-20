@@ -79,13 +79,27 @@ app.get("/api/recipe", (req, res) => {
   }
 });
 
-app.post("/api/category", ({ body, user }, res) => {
+app.post("/api/usercategory", ({ body, user }, res) => {
   User.findOneAndUpdate(
     { username: user.username },
     { $push: { categories: body.category } },
     { new: true }
   )
     .select("-password")
+    .then(dbUser => {
+      res.json(dbUser);
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+});
+
+app.post("/api/recipecategory", ({ body, user }, res) => {
+  Recipe.findOneAndUpdate(
+    { _id: body._id },
+    { $push: { categories: body.category } },
+    { new: true }
+  )
     .then(dbUser => {
       res.json(dbUser);
     })
