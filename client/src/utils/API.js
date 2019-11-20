@@ -39,5 +39,11 @@ export default {
   },
   logout: function() {
     return axios.get("/logout");
+  },
+  addCategoryToUser: function(categoryName) {
+    return axios.post("/api/usercategory", categoryName);
+  },
+  addCategoryToRecipe: function(categoryName) {
+    return axios.post("/api/recipecategory", categoryName);
   }
 };
