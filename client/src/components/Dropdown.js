@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 
 const dropdownStyle = {
-  width: "80%",
   margin: "auto",
   height: "2rem"
 };
 
 function Dropdown(props) {
-  const [dropValue, setDropValue] = useState("None");
+  const [dropValue, setDropValue] = useState("Choose A Diet");
 
   const handleChange = event => {
     setDropValue(event.target.value);
@@ -16,7 +15,9 @@ function Dropdown(props) {
   };
 
   return (
+
     <select value={dropValue} onChange={handleChange} style={dropdownStyle}>
+      <option value="Choose A Diet">Choose A Diet</option>
       <option value="None">None</option>
       <option value="Vegan">Vegan</option>
       <option value="Vegetarian">Vegetarian</option>
@@ -24,7 +25,8 @@ function Dropdown(props) {
       <option value="Ovo Vegetarian">Ovo Vegetarian</option>
       <option value="Pescatarian">Pescatarian</option>
     </select>
-  );
+  )
 }
 
-export default Dropdown;
+export default Dropdown; 
+

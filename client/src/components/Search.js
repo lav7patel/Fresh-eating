@@ -4,8 +4,9 @@ import React from "react";
 import API from "../utils/API.js";
 import RecipeCard from "./RecipeCard.js";
 import Dropdown from "./Dropdown";
+import { useState, useEffect } from "react";
 
-const container = {
+let container = {
   width: "100%",
   height: "100%",
   display: "flex",
@@ -13,6 +14,7 @@ const container = {
   flexWrap: "wrap",
   flexDirection: "row"
 };
+
 
 const intolerancesCheckboxes = [
   {
@@ -166,6 +168,10 @@ class Search extends React.Component {
           <div className="jumbotron jumbotron-fluid">
             <div className="container">
               <h1 className="display-4">Fresh-Eating</h1>
+              <div classNAme= "searchbardislplay">
+            <div className="searchpart">
+                <Dropdown handleDietChange={this.handleDietChange} />
+                
               <input
                 className="form-control"
                 type="text"
@@ -174,13 +180,15 @@ class Search extends React.Component {
                 value={this.state.searchTerm}
                 onChange={this.handleChange}
               />
-              <div className="checkbox">
-                <div className="row">
-                  <div className="col-6">
-                    <h3> Diet </h3>
-                    <Dropdown handleDietChange={this.handleDietChange} />
+                <div className="button">
+                  <button onClick={() => this.searchClick()}>
+                    <i class="fa fa-search"></i> Search
+                  </button>
                   </div>
-                  <div class="col-6">
+                </div>
+                <br></br>
+              <div className="checkbox">
+                <div className="restrictions">
                     <h3> Restrictions </h3>
                     <div className="intolerance-boxes">
                       {intolerancesCheckboxes.map(item => (
@@ -198,14 +206,10 @@ class Search extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div className="button">
-                  <button onClick={() => this.searchClick()}>
-                    <i class="fa fa-search"></i> Search
-                  </button>
-                </div>
-              </div>
+                
             </div>
           </div>
+        </div>
           <div style={container}>
             {this.state.recipes.length
               ? this.state.recipes.map(thisRecipe => {
@@ -218,10 +222,9 @@ class Search extends React.Component {
                 })
               : null}
           </div>
-        </div>
+      </div>
       </>
     );
   }
 }
-
 export default Search;

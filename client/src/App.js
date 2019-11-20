@@ -5,6 +5,7 @@ import Favorites from "./components/Favorites";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import Search from "./components/Search";
+import Dropdown from "./components/Dropdown";
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Search} />
+          <Route exact path= "/Dropdown" component = {Dropdown}/>
           <Route exact path="/login" component={Login} />
           <Route exact path="/Favorites" component={Favorites} />
         </Switch>

@@ -74,15 +74,17 @@ body {
 
 .container {
   border-style: none;
+ /* border: solid;*/
   border-color: black;
   width: 40%;
   padding: 0;
 }
 .checkbox {
   padding: 1em;
-  background-color: #ffffffa8;
+  background-color: #ffffffe8;
   width: 100%;
   text-align: left;
+  margin-right: 0.05;
 }
 input {
   padding: 1em;
@@ -117,14 +119,9 @@ h1 {
   font-size: 4em;
   background-color: white;
   color: black;
+  height: 100px;
 }
-.button {
-  font: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-}
+
 .dispay-4 {
   margin-right: 0;
   text-align: center;
@@ -146,7 +143,6 @@ h2 {
   font-size: 1.5em;
   background-color: #7059545c;
   opacity: 1;
-  margin-left: 1em;
 }
 h3 {
   font-family: Arial, Helvetica, sans-serif;
@@ -167,6 +163,51 @@ img {
   padding-left: 1em;
 }
 .searchbox {
-  color: rgb((0, 0, 0, 0));
+  color: #eaddc6;
   opacity: 1;
+  border: solid;
+}
+
+/*.form-control{
+  width: 50%;
+  float: left;
+
+}*/
+.button {
+    height: 2em;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    margin: 0em;
+    font: 400 13px system-ui;
+    padding: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+    border-image: initial;
+}
+
+
+
+.searchpart{
+  width: 100%;
+  display: inline-flex;
+  height: 2em;
+  float:left;
+}
+.form-control{
+  height: 2em;
+  width: 64%;
+}
+
+.restrictions{
+  text-align: center;
 }

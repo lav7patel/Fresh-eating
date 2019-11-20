@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 const checkboxStyle = {
   width: "1rem",
   height: "1rem",
-  marginRight: ".5rem"
+  marginRight: ".05rem",
+  marginLeft: ".5rem"
 };
 
 const Checkbox = ({
