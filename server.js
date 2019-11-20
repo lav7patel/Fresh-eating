@@ -79,6 +79,21 @@ app.get("/api/recipe", (req, res) => {
   }
 });
 
+app.post("/api/category", ({ body, user }, res) => {
+  User.findOneAndUpdate(
+    { username: user.username },
+    { $push: { categories: body.category } },
+    { new: true }
+  )
+    .select("-password")
+    .then(dbUser => {
+      res.json(dbUser);
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+});
+
 // login routes
 passport.use(
   new LocalStrategy((username, password, done) => {
@@ -151,7 +166,7 @@ app.get("/user", (req, res) => {
 // Endpoint to logout
 app.get("/logout", (req, res) => {
   req.logout();
-  res.render("home");
+  res.json("logged out");
 });
 
 // Send every other request to the React app
