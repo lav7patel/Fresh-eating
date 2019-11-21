@@ -26,7 +26,7 @@ function Favorites(props) {
           setCategories(res.data[0].categories);
         }
 
-        console.log(res.data);
+        console.log(res.data[0].categories);
       })
       .catch(err => console.log(err));
   };
