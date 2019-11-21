@@ -45,5 +45,8 @@ export default {
   },
   addCategoryToRecipe: function(categoryName) {
     return axios.post("/api/recipecategory", categoryName);
+  },
+  removeCategoryFromRecipe: function(category) {
+    return axios.put("/api/recipe", category);
   }
 };

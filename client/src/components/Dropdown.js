@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const dropdownStyle = {
   margin: "auto",
@@ -15,7 +15,6 @@ function Dropdown(props) {
   };
 
   return (
-
     <select value={dropValue} onChange={handleChange} style={dropdownStyle}>
       <option value="Choose A Diet">Choose A Diet</option>
       <option value="None">None</option>
@@ -25,8 +24,7 @@ function Dropdown(props) {
       <option value="Ovo Vegetarian">Ovo Vegetarian</option>
       <option value="Pescatarian">Pescatarian</option>
     </select>
-  )
+  );
 }
 
-export default Dropdown; 
-
+export default Dropdown;

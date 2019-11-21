@@ -1,14 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 const card = {
   width: "48%",
   backgroundColor: "#eaddc6;",
-  border: "solid",
-  color:"black",
+  // border: "solid",
+  color: "black",
   border: "1px solid",
-  padding:" 10px",
+  padding: " 10px"
   /*boxShadow: "5px 10px 18px #888888"*/
-
 };
 
 const cardContents = {
@@ -23,7 +22,7 @@ function RecipeCard(props) {
         <h2>{props.recipe.title}</h2>
       </a>
       <div style={cardContents}>
-        <img src={props.recipe.image} />
+        <img src={props.recipe.image} alt={props.recipe.title} />
         <div>
           <ul>
             <li>Ready In:{props.recipe.readyInMinutes} Minutes</li>
@@ -39,7 +38,9 @@ function RecipeCard(props) {
         </div>
         <div>
           <p>Source: {props.recipe.sourceName}</p>
-          <button onClick={() => props.saveRecipe(props.recipe)}>Save to Favorites</button>
+          <button onClick={() => props.saveRecipe(props.recipe)}>
+            Save to Favorites
+          </button>
         </div>
       </div>
     </div>

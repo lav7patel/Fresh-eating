@@ -46,6 +46,8 @@ app.get("/", (req, res) =>
 );
 
 // Define API routes here
+
+// posting new recipe
 app.post("/api/recipe", ({ body, user }, res) => {
   Recipe.create(body)
     .then(({ _id }) =>
@@ -63,6 +65,28 @@ app.post("/api/recipe", ({ body, user }, res) => {
     });
 });
 
+// for removing categories from recipe
+app.put("/api/recipe", ({ body }, res) => {
+  Recipe.findOneAndUpdate(
+    { _id: body._id },
+    { $pullAll: { categories: [body.category] } }
+  )
+    .then(({ _id }) =>
+      User.findOneAndUpdate(
+        { username: user.username },
+        { $push: { recipes: _id } },
+        { new: true }
+      )
+    )
+    .then(dbRecipe => {
+      res.json(dbRecipe);
+    })
+    .catch(err => {
+      res.status(400).json(err);
+    });
+});
+
+// getting a users saved recipes
 app.get("/api/recipe", (req, res) => {
   if (!req.user) {
     res.json("error");
@@ -79,6 +103,7 @@ app.get("/api/recipe", (req, res) => {
   }
 });
 
+// add a category to a user
 app.post("/api/usercategory", ({ body, user }, res) => {
   User.findOneAndUpdate(
     { username: user.username },
@@ -94,6 +119,7 @@ app.post("/api/usercategory", ({ body, user }, res) => {
     });
 });
 
+// add a category to a recipe
 app.post("/api/recipecategory", ({ body, user }, res) => {
   Recipe.findOneAndUpdate(
     { _id: body._id },

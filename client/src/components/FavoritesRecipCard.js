@@ -5,9 +5,9 @@ import API from "../utils/API.js";
 const card = {
   width: "48%",
   backgroundColor: "#2b0c064a;",
-  border: "solid",
+  // border: "solid",
   color: "black",
-  border: "1px solid",
+  // border: "1px solid",
   padding: " 10px"
   /*boxShadow: "5px 10px 18px #888888"*/
 };
@@ -18,6 +18,8 @@ const cardContents = {
 };
 
 function FavoritesRecipeCard(props) {
+  const [unusedCategories, setunusedCategories] = useState([]);
+
   const addCategory = category => {
     const categoryObject = {
       _id: props.recipe._id,
@@ -30,13 +32,46 @@ function FavoritesRecipeCard(props) {
       })
       .catch(err => console.log(err));
   };
+
+  const removeCategory = category => {
+    const categoryObject = {
+      _id: props.recipe._id,
+      category: category
+    };
+
+    API.removeCategoryFromRecipe(categoryObject)
+      .then(res => {
+        props.getSavedRecipes();
+      })
+      .catch(err => console.log(err));
+  };
+
+  useEffect(() => {
+    const filterCategories = category => {
+      const filtered = props.categories.filter(category => {
+        if (!props.recipe.categories.includes(category)) {
+          return true;
+        }
+        return false;
+      });
+      setunusedCategories(filtered);
+      console.log(filtered);
+    };
+
+    filterCategories();
+  }, [props]);
+
   return (
     <div style={card}>
       <a href={props.recipe.sourceUrl}>
         <h2>{props.recipe.title}</h2>
       </a>
       <div style={cardContents}>
-        <img src={props.recipe.image} className="img-fluid" />
+        <img
+          src={props.recipe.image}
+          alt={props.recipe.title}
+          className="img-fluid"
+        />
         <div>
           <ul>
             <li>Ready In:{props.recipe.readyInMinutes} Minutes</li>
@@ -52,7 +87,17 @@ function FavoritesRecipeCard(props) {
           <ul>
             {props.recipe.categories.length
               ? props.recipe.categories.map(category => {
-                  return <li>{category}</li>;
+                  return (
+                    <li>
+                      {category}{" "}
+                      <a
+                        href="/favorites"
+                        onClick={() => removeCategory(category)}
+                      >
+                        (remove)
+                      </a>
+                    </li>
+                  );
                 })
               : null}
           </ul>
@@ -60,7 +105,7 @@ function FavoritesRecipeCard(props) {
         <div>
           <p>Source: {props.recipe.sourceName}</p>
           <CategoryDropdown
-            categories={props.categories}
+            categories={unusedCategories}
             addCategory={addCategory}
             version="recipeCard"
           />
