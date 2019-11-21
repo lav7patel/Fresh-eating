@@ -13,6 +13,8 @@ function CategoryDropdown(props) {
     setDropValue(event.target.value);
     if (props.version === "recipeCard") {
       props.addCategory(event.target.value);
+    } else {
+      props.filterRecipes(event.target.value);
     }
   };
 
@@ -21,8 +23,12 @@ function CategoryDropdown(props) {
       {props.version === "recipeCard" ? (
         <option value="Add a Category">Add a Category</option>
       ) : (
-        <option value="Pick a category to see">Pick a category to see</option>
+        <option value="Pick a category to filter">
+          Pick a category to filter
+        </option>
       )}
+      <option value="All">All</option>
+      <option value="Uncategorized">Uncategorized</option>
       {props.categories.map(category => (
         <option value={category}>{category}</option>
       ))}

@@ -16,13 +16,16 @@ function Favorites(props) {
   const [recipes, setRecipes] = useState([]);
   const [categories, setCategories] = useState([]);
   const [newCategory, setNewCategory] = useState("");
+  const [filteredRecipes, setFilteredRecipes] = useState([]);
 
+  // gets favorites from database
   const getSavedRecipes = () => {
     setRecipes([]);
     API.getSaved()
       .then(res => {
         if (res.data !== "error") {
           setRecipes(res.data[0].recipes);
+          setFilteredRecipes(res.data[0].recipes);
           setCategories(res.data[0].categories);
         }
 
@@ -31,6 +34,7 @@ function Favorites(props) {
       .catch(err => console.log(err));
   };
 
+  // add a new category option to the use object
   const addNewCategoryToUser = () => {
     const categoryObject = {
       category: newCategory
@@ -46,17 +50,47 @@ function Favorites(props) {
       .catch(err => console.log(err));
   };
 
+  // when somehting is clicked on dropdown to filter
+  const filterRecipes = category => {
+    if (category === "All") {
+      setFilteredRecipes(recipes);
+    } else if (category === "Uncategorized") {
+      console.log("test");
+      const uncategorized = recipes.filter(recipe => {
+        if (recipe.categories.length < 1) {
+          return true;
+        }
+        return false;
+      });
+      setFilteredRecipes(uncategorized);
+    } else {
+      const filtered = recipes.filter(recipe => {
+        if (recipe.categories.includes(category)) {
+          return true;
+        }
+        return false;
+      });
+      setFilteredRecipes(filtered);
+    }
+  };
+
+  // text box to add a new category handler
   const handleChange = event => {
     setNewCategory(event.target.value);
   };
 
+  // basically component did mount
   useEffect(() => {
     getSavedRecipes();
   }, []);
 
   return (
     <>
-      <CategoryDropdown categories={categories} version="main" />
+      <CategoryDropdown
+        categories={categories}
+        version="main"
+        filterRecipes={filterRecipes}
+      />
       <label>
         Add a Category
         <input
@@ -68,8 +102,8 @@ function Favorites(props) {
       </label>
       <button onClick={addNewCategoryToUser}>Add new Category</button>
       <div style={container}>
-        {recipes.length
-          ? recipes.map(thisRecipe => {
+        {filteredRecipes.length
+          ? filteredRecipes.map(thisRecipe => {
               return (
                 <FavoritesRecipeCard
                   recipe={thisRecipe}

@@ -98,11 +98,11 @@ class Search extends Component {
       showActionFilterList: !prevState.showActionFilterList
     }));
 
+  // handles diet dropdown
   handleDietChange(diet) {
     this.setState({ diet });
-    console.log(diet);
   }
-
+  // handles all the intolerance checkboxes
   handleIntoleranceCheckChange(e) {
     const item = e.target.name;
     const isChecked = e.target.checked;
@@ -112,11 +112,12 @@ class Search extends Component {
     console.log(this.state.checkedIntolerances);
   }
 
+  // handles the searchbox
   handleChange = event => {
-    console.log(event);
     this.setState({ searchTerm: event.target.value });
   };
 
+  // queries the api
   searchAPI = (query, diets, intolerances) => {
     API.search(query, diets, intolerances)
       .then(res => {
@@ -126,6 +127,7 @@ class Search extends Component {
       .catch(err => console.log(err));
   };
 
+  // run when search is clicked, crates the object to send to the API
   searchClick = () => {
     const query = this.state.searchTerm;
     let diet = this.state.diet;
@@ -141,6 +143,7 @@ class Search extends Component {
     }
   };
 
+  // saves recipe to the database
   saveRecipe = recipe => {
     const recipeForDB = {
       title: recipe.title,
@@ -153,7 +156,6 @@ class Search extends Component {
       diets: recipe.diets
     };
 
-    console.log(recipeForDB);
     API.saveRecipe(recipeForDB)
       .then(res => {})
       .catch(err => console.log(err));

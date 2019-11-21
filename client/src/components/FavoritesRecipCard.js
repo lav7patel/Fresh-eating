@@ -48,8 +48,6 @@ function FavoritesRecipeCard(props) {
 
   useEffect(() => {
     const filterCategories = category => {
-      console.log(props);
-      console.log(props.recipe.categories);
       const filtered = props.categories.filter(category => {
         if (!props.recipe.categories.includes(category)) {
           return true;
