@@ -6,6 +6,7 @@ function Navbar(props) {
       <a href="/favorites">
         <i class="fa fa-star"></i>Favorites
       </a>
+      <a href="/login">login</a>
       <a href="/">Search</a>
     </div>
   );
