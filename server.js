@@ -71,13 +71,6 @@ app.put("/api/recipe", ({ body }, res) => {
     { _id: body._id },
     { $pullAll: { categories: [body.category] } }
   )
-    .then(({ _id }) =>
-      User.findOneAndUpdate(
-        { username: user.username },
-        { $push: { recipes: _id } },
-        { new: true }
-      )
-    )
     .then(dbRecipe => {
       res.json(dbRecipe);
     })
