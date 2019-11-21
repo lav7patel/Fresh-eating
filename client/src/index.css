@@ -143,6 +143,8 @@ h2 {
   font-size: 1.5em;
   background-color: #7059545c;
   opacity: 1;
+  /*display:inline-block;
+  margin: auto;*/
 }
 h3 {
   font-family: Arial, Helvetica, sans-serif;
@@ -150,6 +152,7 @@ h3 {
   font-size: 1.5em;
   background-color: #7059545c;
   opacity: 1;
+  display:inline-block;
   /* margin-left: 1em; */
 }
 
