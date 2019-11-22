@@ -152,7 +152,7 @@ h3 {
   opacity: 1;
   display:inline-block;
   padding: 2px 5em 2px 5em;
-  /* margin-left: 1em; */
+  margin-left: 1em;
 }
 
 a {
@@ -215,8 +215,4 @@ img {
 }
 .fa{
   padding: 1px .5em 1px .5em ;
-}
-
-.dropbox{
-  height: 1.8rem;
 }
