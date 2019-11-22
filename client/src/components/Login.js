@@ -70,7 +70,8 @@ function Login(props) {
                   className="input100"
                   type="text"
                   name="username"
-                  value={handleChange}
+                  value={username}
+                  onChange={handleChange}
                 />
                 <span
                   className="focus-input100"
@@ -89,7 +90,8 @@ function Login(props) {
                   className="input100"
                   type="password"
                   name="password"
-                  value={handleChange}
+                  value={password}
+                  onChange={handleChange}
                 />
                 <span
                   className="focus-input100"
