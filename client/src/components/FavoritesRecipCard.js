@@ -19,13 +19,13 @@ const cardContents = {
 
 function FavoritesRecipeCard(props) {
   const [unusedCategories, setunusedCategories] = useState([]);
+  const [recipe, setRecipe] = useState({});
 
   const addCategory = category => {
     const categoryObject = {
       _id: props.recipe._id,
       category: category
     };
-    console.log(categoryObject);
     API.addCategoryToRecipe(categoryObject)
       .then(res => {
         props.getSavedRecipes();
@@ -47,6 +47,8 @@ function FavoritesRecipeCard(props) {
   };
 
   useEffect(() => {
+    setRecipe(props.recipe);
+
     const filterCategories = category => {
       const filtered = props.categories.filter(category => {
         if (!props.recipe.categories.includes(category)) {
@@ -55,7 +57,6 @@ function FavoritesRecipeCard(props) {
         return false;
       });
       setunusedCategories(filtered);
-      console.log(filtered);
     };
 
     filterCategories();
@@ -63,35 +64,31 @@ function FavoritesRecipeCard(props) {
 
   return (
     <div style={card}>
-      <a href={props.recipe.sourceUrl}>
-        <h2>{props.recipe.title}</h2>
+      <a href={recipe.sourceUrl}>
+        <h2>{recipe.title}</h2>
       </a>
       <div style={cardContents}>
-        <img
-          src={props.recipe.image}
-          alt={props.recipe.title}
-          className="img-fluid"
-        />
+        <img src={recipe.image} alt={recipe.title} className="img-fluid" />
         <div>
           <ul>
-            <li>Ready In:{props.recipe.readyInMinutes} Minutes</li>
-            <li>Servings: {props.recipe.servings}</li>
+            <li>Ready In:{recipe.readyInMinutes} Minutes</li>
+            <li>Servings: {recipe.servings}</li>
           </ul>
           <ul>
-            {props.recipe.diets.length
-              ? props.recipe.diets.map(diet => {
+            {recipe.diets
+              ? recipe.diets.map(diet => {
                   return <li>{diet}</li>;
                 })
               : null}
           </ul>
           <ul>
-            {props.recipe.categories.length
-              ? props.recipe.categories.map(category => {
+            {recipe.categories
+              ? recipe.categories.map(category => {
                   return (
                     <li>
-                      {category}{" "}
+                      {category}
                       <a
-                        href="/favorites"
+                        href="javascript:;"
                         onClick={() => removeCategory(category)}
                       >
                         (remove)
@@ -103,7 +100,7 @@ function FavoritesRecipeCard(props) {
           </ul>
         </div>
         <div>
-          <p>Source: {props.recipe.sourceName}</p>
+          <p>Source: {recipe.sourceName}</p>
           <CategoryDropdown
             categories={unusedCategories}
             addCategory={addCategory}
