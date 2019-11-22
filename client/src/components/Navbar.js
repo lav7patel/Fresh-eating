@@ -2,16 +2,29 @@ import React from "react";
 
 function Navbar(props) {
   return (
-    <div className="topnav">
-      <a href="/favorites">
-        <i class="fa fa-star"></i>Favorites
-      </a>
-      <a href="/login">login</a>
-      <a href="/">Search</a>
-    </div>
-  );
+	  <div className= "seize">
+    <input id="burger" type="checkbox" />
 
-  //<div> Navbar </div>;
+<label for="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+</label>
+
+<nav>    
+  <ul>
+    <li><a href="/">Search</a></li>
+    <li><a href="/login">Login</a></li>
+    <li><a href="/favorites">Favorites</a></li>
+  </ul>  
+</nav>
+</div>
+  );
 }
 
+
 export default Navbar;
+
+
+
+
