@@ -4,7 +4,6 @@ import React from "react";
 import API from "../utils/API.js";
 import RecipeCard from "./RecipeCard.js";
 import Dropdown from "./Dropdown";
-import { useState, useEffect } from "react";
 
 let container = {
   width: "100%",
@@ -14,7 +13,6 @@ let container = {
   flexWrap: "wrap",
   flexDirection: "row"
 };
-
 
 const intolerancesCheckboxes = [
   {
@@ -76,7 +74,7 @@ const intolerancesCheckboxes = [
 
 //function Search(props) {
 // render() {
-class Search extends React.Component {
+class Search extends Component {
   constructor(props) {
     super(props);
 
@@ -100,11 +98,11 @@ class Search extends React.Component {
       showActionFilterList: !prevState.showActionFilterList
     }));
 
+  // handles diet dropdown
   handleDietChange(diet) {
     this.setState({ diet });
-    console.log(diet);
   }
-
+  // handles all the intolerance checkboxes
   handleIntoleranceCheckChange(e) {
     const item = e.target.name;
     const isChecked = e.target.checked;
@@ -114,11 +112,12 @@ class Search extends React.Component {
     console.log(this.state.checkedIntolerances);
   }
 
+  // handles the searchbox
   handleChange = event => {
-    console.log(event);
     this.setState({ searchTerm: event.target.value });
   };
 
+  // queries the api
   searchAPI = (query, diets, intolerances) => {
     API.search(query, diets, intolerances)
       .then(res => {
@@ -128,6 +127,7 @@ class Search extends React.Component {
       .catch(err => console.log(err));
   };
 
+  // run when search is clicked, crates the object to send to the API
   searchClick = () => {
     const query = this.state.searchTerm;
     let diet = this.state.diet;
@@ -135,7 +135,7 @@ class Search extends React.Component {
     for (let key of this.state.checkedIntolerances.keys()) {
       intolerances += `${key},`;
     }
-    if (diet !== "None") {
+    if (diet !== "None" || diet !== "Choose A Diet") {
       this.searchAPI(query, diet, intolerances);
     } else {
       diet = "";
@@ -143,6 +143,7 @@ class Search extends React.Component {
     }
   };
 
+  // saves recipe to the database
   saveRecipe = recipe => {
     const recipeForDB = {
       title: recipe.title,
@@ -167,27 +168,27 @@ class Search extends React.Component {
           <div className="jumbotron jumbotron-fluid">
             <div className="container">
               <h1 className="display-4">Fresh-Eating</h1>
-              <div classNAme= "searchbardislplay">
-            <div className="searchpart">
-                <Dropdown handleDietChange={this.handleDietChange} />
-                
-              <input
-                className="form-control"
-                type="text"
-                placeholder="Search for a recipe"
-                name="search"
-                value={this.state.searchTerm}
-                onChange={this.handleChange}
-              />
-                <div className="button">
-                  <button onClick={() => this.searchClick()}>
-                    <i class="fa fa-search"></i> Search
-                  </button>
+              <div classNAme="searchbardislplay">
+                <div className="searchpart">
+                  <Dropdown handleDietChange={this.handleDietChange} />
+
+                  <input
+                    className="form-control"
+                    type="text"
+                    placeholder="Search for a recipe"
+                    name="search"
+                    value={this.state.searchTerm}
+                    onChange={this.handleChange}
+                  />
+                  <div className="button">
+                    <button onClick={() => this.searchClick()}>
+                      <i class="fa fa-search"></i> Search
+                    </button>
                   </div>
                 </div>
                 <br></br>
-              <div className="checkbox">
-                <div className="restrictions">
+                <div className="checkbox">
+                  <div className="restrictions">
                     <h3> Restrictions </h3>
                     <div className="intolerance-boxes">
                       {intolerancesCheckboxes.map(item => (
@@ -205,10 +206,9 @@ class Search extends React.Component {
                     </div>
                   </div>
                 </div>
-                
+              </div>
             </div>
           </div>
-        </div>
           <div style={container}>
             {this.state.recipes.length
               ? this.state.recipes.map(thisRecipe => {
@@ -221,7 +221,7 @@ class Search extends React.Component {
                 })
               : null}
           </div>
-      </div>
+        </div>
       </>
     );
   }

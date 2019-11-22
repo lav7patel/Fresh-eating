@@ -28,5 +28,25 @@ export default {
   },
   getSaved: function() {
     return axios.get("api/recipe");
+  },
+  // send it username, password, password2
+  registerUser: function(userData) {
+    return axios.post("/register", userData);
+  },
+  // send username and password
+  login: function(userData) {
+    return axios.post("/login", userData);
+  },
+  logout: function() {
+    return axios.get("/logout");
+  },
+  addCategoryToUser: function(categoryName) {
+    return axios.post("/api/usercategory", categoryName);
+  },
+  addCategoryToRecipe: function(categoryName) {
+    return axios.post("/api/recipecategory", categoryName);
+  },
+  removeCategoryFromRecipe: function(category) {
+    return axios.put("/api/recipe", category);
   }
 };
