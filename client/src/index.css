@@ -74,8 +74,6 @@ body {
 
 .container {
   border-style: none;
- /* border: solid;*/
-  border-color: black;
   width: 40%;
   padding: 0;
 }
@@ -153,6 +151,7 @@ h3 {
   background-color: #7059545c;
   opacity: 1;
   display:inline-block;
+  padding: 2px 5em 2px 5em;
   /* margin-left: 1em; */
 }
 
@@ -177,7 +176,6 @@ img {
 
 }*/
 .button {
-    height: 2em;
     text-rendering: auto;
     letter-spacing: normal;
     word-spacing: normal;
@@ -190,7 +188,7 @@ img {
     cursor: default;
     box-sizing: border-box;
     margin: 0em;
-    font: 400 13px system-ui;
+    font: 400 20px system-ui;
     padding: 0;
     border-width: 1px;
     border-style: solid;
@@ -205,12 +203,20 @@ img {
   display: inline-flex;
   height: 2em;
   float:left;
+  margin:0;
 }
 .form-control{
   height: 2em;
-  width: 64%;
+  width: 68%;
 }
 
 .restrictions{
   text-align: center;
+}
+.fa{
+  padding: 1px .5em 1px .5em ;
+}
+
+.dropbox{
+  height: 1.8rem;
 }
