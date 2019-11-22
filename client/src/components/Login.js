@@ -66,7 +66,12 @@ function Login(props) {
                 className="wrap-input100 validate-input"
                 data-validate="Valid email is: a@b.c"
               >
-                <input className="input100" type="text" name="email" />
+                <input
+                  className="input100"
+                  type="text"
+                  name="username"
+                  value={handleChange}
+                />
                 <span
                   className="focus-input100"
                   data-placeholder="Email"
@@ -80,7 +85,12 @@ function Login(props) {
                 <span className="btn-show-pass">
                   <i className="zmdi zmdi-eye"></i>
                 </span>
-                <input className="input100" type="password" name="pass" />
+                <input
+                  className="input100"
+                  type="password"
+                  name="password"
+                  value={handleChange}
+                />
                 <span
                   className="focus-input100"
                   data-placeholder="Password"
@@ -90,7 +100,9 @@ function Login(props) {
               <div className="container-login100-form-btn">
                 <div className="wrap-login100-form-btn">
                   <div className="login100-form-bgbtn"></div>
-                  <button className="login100-form-btn">Login</button>
+                  <button onClick={handleSubmit} className="login100-form-btn">
+                    Login
+                  </button>
                 </div>
               </div>
 
