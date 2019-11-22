@@ -20,17 +20,33 @@ const cardContents = {
 function FavoritesRecipeCard(props) {
   const [unusedCategories, setunusedCategories] = useState([]);
   const [recipe, setRecipe] = useState({});
+  const [categories, setcategories] = useState([]);
+  const [, forceUpdate] = React.useState(0);
 
   const addCategory = category => {
-    const categoryObject = {
-      _id: props.recipe._id,
-      category: category
-    };
-    API.addCategoryToRecipe(categoryObject)
-      .then(res => {
-        props.getSavedRecipes();
-      })
-      .catch(err => console.log(err));
+    if (category !== "Add A Category") {
+      const categoryObject = {
+        _id: props.recipe._id,
+        category: category
+      };
+
+      API.addCategoryToRecipe(categoryObject)
+        .then(res => {
+          // props.getSavedRecipes();
+          const newCategories = categories;
+
+          newCategories.push(category);
+          setcategories(newCategories);
+
+          const newUnusedCategories = unusedCategories.filter(
+            thisCategory => thisCategory !== category
+          );
+          setunusedCategories(newUnusedCategories);
+
+          forceUpdate(n => !n);
+        })
+        .catch(err => console.log(err));
+    }
   };
 
   const removeCategory = category => {
@@ -41,13 +57,21 @@ function FavoritesRecipeCard(props) {
 
     API.removeCategoryFromRecipe(categoryObject)
       .then(res => {
-        props.getSavedRecipes();
+        const newCategories = categories.filter(
+          thisCategory => thisCategory !== category
+        );
+        setcategories(newCategories);
+        const newUnusedCategories = unusedCategories;
+        newUnusedCategories.push(category);
+        setunusedCategories(newUnusedCategories);
+        forceUpdate(n => !n);
       })
       .catch(err => console.log(err));
   };
 
   useEffect(() => {
     setRecipe(props.recipe);
+    setcategories(props.recipe.categories);
 
     const filterCategories = category => {
       const filtered = props.categories.filter(category => {
@@ -82,8 +106,8 @@ function FavoritesRecipeCard(props) {
               : null}
           </ul>
           <ul>
-            {recipe.categories
-              ? recipe.categories.map(category => {
+            {categories
+              ? categories.map(category => {
                   return (
                     <li>
                       {category}
