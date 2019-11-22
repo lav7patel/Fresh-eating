@@ -24,27 +24,29 @@ function FavoritesRecipeCard(props) {
   const [, forceUpdate] = React.useState(0);
 
   const addCategory = category => {
-    const categoryObject = {
-      _id: props.recipe._id,
-      category: category
-    };
+    if (category !== "Add A Category") {
+      const categoryObject = {
+        _id: props.recipe._id,
+        category: category
+      };
 
-    API.addCategoryToRecipe(categoryObject)
-      .then(res => {
-        // props.getSavedRecipes();
-        const newCategories = categories;
+      API.addCategoryToRecipe(categoryObject)
+        .then(res => {
+          // props.getSavedRecipes();
+          const newCategories = categories;
 
-        newCategories.push(category);
-        setcategories(newCategories);
+          newCategories.push(category);
+          setcategories(newCategories);
 
-        const newUnusedCategories = unusedCategories.filter(
-          thisCategory => thisCategory !== category
-        );
-        setunusedCategories(newUnusedCategories);
+          const newUnusedCategories = unusedCategories.filter(
+            thisCategory => thisCategory !== category
+          );
+          setunusedCategories(newUnusedCategories);
 
-        forceUpdate(n => !n);
-      })
-      .catch(err => console.log(err));
+          forceUpdate(n => !n);
+        })
+        .catch(err => console.log(err));
+    }
   };
 
   const removeCategory = category => {
