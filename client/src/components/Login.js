@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import API from "../utils/API.js";
+import { Link } from "react-router-dom";
 
 function Login(props) {
   const [username, setUsername] = useState("");
@@ -54,7 +55,7 @@ function Login(props) {
 
   return (
     <>
-      <div classNameName="limiter">
+      <div className="limiter">
         <div className="container-login100">
           <div className="wrap-login100">
             <form className="login100-form validate-form">
@@ -94,17 +95,41 @@ function Login(props) {
                   value={password}
                   onChange={handleChange}
                 />
+
                 <span
                   className="focus-input100"
                   data-placeholder="Password"
                 ></span>
               </div>
 
+              {loginPage ? null : (
+                <div
+                  className="wrap-input100 validate-input"
+                  data-validate="Enter password"
+                >
+                  <span className="btn-show-pass">
+                    <i className="zmdi zmdi-eye"></i>
+                  </span>
+                  <input
+                    className="input100"
+                    type="password"
+                    name="password2"
+                    value={password2}
+                    onChange={handleChange}
+                  />
+
+                  <span
+                    className="focus-input100"
+                    data-placeholder="Password"
+                  ></span>
+                </div>
+              )}
+
               <div className="container-login100-form-btn">
                 <div className="wrap-login100-form-btn">
                   <div className="login100-form-bgbtn"></div>
                   <button onClick={handleSubmit} className="login100-form-btn">
-                    Login
+                    Submit
                   </button>
                 </div>
               </div>
@@ -112,9 +137,13 @@ function Login(props) {
               <div className="text-center p-t-115">
                 <span className="txt1">Don’t have an account?</span>
 
-                <a className="txt2" href="#">
+                <Link onClick={switchPage} className="txt2">
+                  signup
+                </Link>
+
+                {/* <a className="txt2" href="#">
                   Sign Up
-                </a>
+                </a> */}
               </div>
             </form>
           </div>
