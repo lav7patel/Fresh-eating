@@ -220,6 +220,9 @@ class Search extends Component {
               </div>
             </div>
           </div>
+
+          <br></br>
+        </div>
           <div style={container}>
             {this.state.recipes.length
               ? this.state.recipes.map(thisRecipe => {
