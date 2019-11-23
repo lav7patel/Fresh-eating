@@ -2,19 +2,17 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: #eaddc6;
+  background-color: #EADDC6;
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-
 .topnav {
   overflow: hidden;
   background-color: #FFB380;
   padding: 0;
-  margin: 0;
+  margin-bottom: 0;
 }
-
 .topnav a {
   font-size: 20px;
   color: white;
@@ -28,7 +26,6 @@ body {
   float: left;
   overflow: hidden;
 }
-
 .dropdown .dropbtn {
   font-size: 16px;
   border: none;
@@ -39,21 +36,14 @@ body {
   font-family: inherit;
   margin: 0;
 }
-
-.navbar a:hover,
-.dropdown:hover .dropbtn {
-  background-color: red;
-}
-
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: #F9F9F9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
-
 .dropdown-content a {
   float: none;
   color: black;
@@ -62,25 +52,21 @@ body {
   display: block;
   text-align: left;
 }
-
 .dropdown-content a:hover {
   background-color: #ddd;
 }
-
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
 .container {
   border-style: none;
- /* border: solid;*/
-  border-color: black;
   width: 40%;
   padding: 0;
+  margin-top: -2px;
 }
 .checkbox {
   padding: 1em;
-  background-color: #ffffffe8;
+  background-color: #F8F7F6E3;
   width: 100%;
   text-align: left;
   margin-right: 0.05;
@@ -88,14 +74,12 @@ body {
 input {
   padding: 1em;
 }
-
 label {
   padding-right: 0.75em;
   color: black;
 }
-
 .jumbotron {
-  background-image: url("./images/foodD.png");
+  background-image: url(“./images/allergybackground.png”);
   display: block;
   object-fit: scale-down;
   width: 100%;
@@ -106,30 +90,27 @@ label {
   margin: 0;
   margin-right: 0;
   background-size: cover;
-  opacity: 0.65;
   color: black;
 }
-
 h1 {
   text-align: center;
   width: auto;
   margin-bottom: 0;
+  margin-top:0;
   padding: 0;
   font-size: 4em;
   background-color: white;
-  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-family: “Palatino Linotype”, “Book Antiqua”, Palatino, serif;
   color: black;
-  height: 100px;
-  font-variant: small-caps;
+  /*height: 100px;
+  font-variant: small-caps;*/
 }
-
 .dispay-4 {
   margin-right: 0;
   text-align: center;
   background-color: white;
   color: black;
 }
-
 .diet-boxes {
   margin-left: 2 em;
   padding-left: 2 em;
@@ -142,20 +123,21 @@ h2 {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   font-size: 1.5em;
-  background-color: #7059545c;
+  background-color:#7059547d ;
   opacity: 1;
-  display:inline-block;
-  margin: auto
+  /*display:inline-block
+  margin: auto;*/
 }
 h3 {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   font-size: 1.5em;
-  background-color: #7059545c;
+  background-color: #7059547D;
   opacity: 1;
-  /* margin-left: 1em; */
+  padding: 2px 5em 2px 5em;
+  margin-top:5px;
+  margin-bottom:15px;
 }
-
 a {
   color: black;
 }
@@ -166,18 +148,15 @@ img {
   padding-left: 1em;
 }
 .searchbox {
-  color: #eaddc6;
+  color: #EADDC6;
   opacity: 1;
   border: solid;
 }
-
 .form-control{
   width: 50%;
   float: left;
-
 }
 .button {
-    height: 2em;
     text-rendering: auto;
     letter-spacing: normal;
     word-spacing: normal;
@@ -190,27 +169,24 @@ img {
     cursor: default;
     box-sizing: border-box;
     margin: 0em;
-    font: 400 13px system-ui;
+    font: 400 20px system-ui;
     padding: 0;
     border-width: 1px;
     border-style: solid;
     border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
     border-image: initial;
 }
-
-
-
 .searchpart{
   width: 100%;
   display: inline-flex;
   height: 2em;
   float:left;
+  margin:0;
 }
 .form-control{
   height: 2em;
-  width: 64%;
+  width: 68%;
 }
-
 .restrictions{
   text-align: center;
 }
