@@ -27,6 +27,7 @@ function Login(props) {
       API.login(userObject)
         .then(res => {
           console.log(res);
+          props.history.push("/");
         })
         .catch(err => console.log(err));
     } else {
