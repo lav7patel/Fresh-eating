@@ -2,7 +2,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+
   background-color: #eaddc6;
+
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -11,7 +13,7 @@ body {
 
 .topnav {
   overflow: hidden;
-  background-color: #FFB380;
+  background-color: #DCB697;
   padding: 0;
   margin-bottom: 0;
 }
@@ -88,7 +90,7 @@ input {
 }
 
 label {
-  padding-right: 0.75em;
+  padding-right: 0.5em;
   color: black;
 }
 
@@ -143,8 +145,7 @@ h2 {
   font-size: 1.5em;
   background-color:#7059547d ;
   opacity: 1;
-  /*display:inline-block
-  margin: auto;*/
+  margin-bottom: 5px;
 }
 h3 {
   font-family: Arial, Helvetica, sans-serif;
@@ -164,7 +165,7 @@ p {
   margin-inline-end: 1em;
 }
 img {
-  padding-left: 1em;
+  padding: 8px;
 }
 .searchbox {
   color: #eaddc6;
@@ -179,6 +180,7 @@ img {
 }*/
 .button {
     background:#f8f8f8;
+    background: solid;
     text-rendering: auto;
     letter-spacing: normal;
     word-spacing: normal;
@@ -219,4 +221,20 @@ img {
 
 .fa{
   padding: 1px .5em 1px .5em ;
+}
+
+button{
+  border: 1px solid rgba(0,0,0,.15);
+  outline: inset;
+  background: #f8f8f8;
+  padding: 3px;
+  }
+
+  .recipe-source-save{
+    margin-left: 25px;
+  }
+
+.recipe-info{
+  margin-top: 4px;
+  margin-left: 24px;
 }
