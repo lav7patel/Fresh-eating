@@ -8,7 +8,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/*.topnav {
+.topnav {
+
   overflow: hidden;
   background-color: #FFB380;
   padding: 0;
@@ -23,7 +24,8 @@ body {
   text-decoration: none;
   border-left: 0.2em solid;
   float: right;
-}*/
+}
+
 .dropdown {
   float: left;
   overflow: hidden;
@@ -73,11 +75,11 @@ body {
   margin-top: -2px;
 }
 .checkbox {
-  padding: 1em;
+  padding: 12px;
+  margin-top: 7px;
   background-color: #f8f7f6e3;
   width: 100%;
   text-align: left;
-  margin-right: 0.05;
 }
 input {
   padding: 1em;
@@ -165,7 +167,6 @@ img {
   color: #eaddc6;
   opacity: 1;
   border: solid;
-  margin-top: ;
 }
 
 /*.form-control{
@@ -174,24 +175,25 @@ img {
 
 }*/
 .button {
-  text-rendering: auto;
-  letter-spacing: normal;
-  word-spacing: normal;
-  text-transform: none;
-  text-indent: 0px;
-  text-shadow: none;
-  display: inline-block;
-  text-align: center;
-  align-items: flex-start;
-  cursor: default;
-  box-sizing: border-box;
-  margin: 0em;
-  font: 400 20px system-ui;
-  padding: 0;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
-  border-image: initial;
+    background:#f8f8f8;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    margin: 0em;
+    font: 400 20px system-ui;
+    padding: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+    border-image: initial;
 }
 
 .searchpart {
@@ -209,6 +211,7 @@ img {
 .restrictions {
   text-align: center;
 }
+
 
 body h1 > span {
   text-transform: none;
@@ -325,4 +328,7 @@ body input:checked ~ nav > ul > li {
 
 .display-none {
   display: none;
+}
+.fa{
+  padding: 1px .5em 1px .5em ;
 }
