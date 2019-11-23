@@ -28,6 +28,7 @@ function Login(props) {
       API.login(userObject)
         .then(res => {
           console.log(res);
+          props.history.push("/");
         })
         .catch(err => console.log(err));
     } else {
@@ -59,10 +60,6 @@ function Login(props) {
           <div className="wrap-login100">
             <form className="login100-form validate-form">
               <span className="login100-form-title p-b-26">Welcome</span>
-              <span className="login100-form-title p-b-48">
-                <i className="zmdi zmdi-font"></i>
-              </span>
-
               <div
                 className="wrap-input100 validate-input"
                 data-validate="Valid email is: a@b.c"
