@@ -2,8 +2,9 @@ import React from "react";
 
 const card = {
   width: "48%",
-  backgroundColor: "#eaddc6;",
-  // border: "solid",
+  backgroundColor: "rgba(255, 255, 255, 0.5)",
+  borderBottom: "solid",
+  borderWidth: "1px",
   color: "black",
   padding: " 10px"
   /*boxShadow: "5px 10px 18px #888888"*/
@@ -22,7 +23,7 @@ function RecipeCard(props) {
       </a>
       <div style={cardContents}>
         <img src={props.recipe.image} alt={props.recipe.title} />
-        <div>
+        <div className="recipe-info">
           <ul>
             <li>Ready In:{props.recipe.readyInMinutes} Minutes</li>
             <li>Servings: {props.recipe.servings}</li>
@@ -35,7 +36,7 @@ function RecipeCard(props) {
               : null}
           </ul>
         </div>
-        <div>
+        <div className="recipe-source-save">
           <p>Source: {props.recipe.sourceName}</p>
           <button onClick={() => props.saveRecipe(props.recipe)}>
             Save to Favorites
