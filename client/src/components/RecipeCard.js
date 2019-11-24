@@ -31,7 +31,7 @@ function RecipeCard(props) {
           <ul>
             {props.recipe.diets.length
               ? props.recipe.diets.map(diet => {
-                  return <li>{diet}</li>;
+                  return <li key={diet}>{diet}</li>;
                 })
               : null}
           </ul>

@@ -17,7 +17,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Navbar />
+        <Navbar username={this.state.username} />
         <Switch>
           <Route exact path="/" component={Search} />
           <Route

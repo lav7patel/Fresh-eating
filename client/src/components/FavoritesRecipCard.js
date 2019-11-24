@@ -101,7 +101,7 @@ function FavoritesRecipeCard(props) {
           <ul>
             {recipe.diets
               ? recipe.diets.map(diet => {
-                  return <li>{diet}</li>;
+                  return <li key={diet}>{diet}</li>;
                 })
               : null}
           </ul>
@@ -109,7 +109,7 @@ function FavoritesRecipeCard(props) {
             {categories
               ? categories.map(category => {
                   return (
-                    <li>
+                    <li key={category}>
                       {category}
                       <a
                         href="javascript:;"
