@@ -5,17 +5,28 @@ import Favorites from "./components/Favorites";
 import Login from "./components/Login";
 import Navbar from "./components/Navbar";
 import Search from "./components/Search";
-import Dropdown from "./components/Dropdown";
 
 class App extends Component {
+  state = {
+    username: ""
+  };
+
+  setUsername = newUsername => {
+    this.setState({ username: newUsername });
+  };
   render() {
     return (
       <Router>
-        <Navbar />
+        <Navbar username={this.state.username} />
         <Switch>
           <Route exact path="/" component={Search} />
-          <Route exact path= "/Dropdown" component = {Dropdown}/>
-          <Route exact path="/login" component={Login} />
+          <Route
+            exact
+            path="/login"
+            render={props => (
+              <Login {...props} setUsername={this.setUsername} />
+            )}
+          />
           <Route exact path="/Favorites" component={Favorites} />
         </Switch>
       </Router>

@@ -228,18 +228,20 @@ class Search extends Component {
 
           <br></br>
         </div>
-          <div style={container}>
-            {this.state.recipes.length
-              ? this.state.recipes.map(thisRecipe => {
-                  return (
-                    <RecipeCard
-                      recipe={thisRecipe}
-                      saveRecipe={this.saveRecipe}
-                    />
-                  );
-                })
-              : null}
-          </div>
+        <div style={container}>
+          {this.state.recipes.length
+            ? this.state.recipes.map(thisRecipe => {
+                return (
+                  <RecipeCard
+                    key={thisRecipe.title}
+                    recipe={thisRecipe}
+                    saveRecipe={this.saveRecipe}
+                  />
+                );
+              })
+            : null}
+        </div>
+
         <Modal
           show={this.state.show}
           handleClose={this.hideModal}

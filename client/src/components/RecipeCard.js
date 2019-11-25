@@ -28,7 +28,6 @@ function RecipeCard(props) {
           <div className= "prep">
             <ul>
               <li><i class="fa fa-clock-o"></i> {props.recipe.readyInMinutes}  Minutes</li>
-              
               <li><i class="fa fa-users"></i> Serves: {props.recipe.servings}</li>
             </ul>
             </div>
@@ -38,11 +37,11 @@ function RecipeCard(props) {
               {props.recipe.diets.length
                 ? props.recipe.diets.map(diet => {
                     return <li><i class="fa fa-check"></i>{diet}</li>;
+                      {/* return <li key={diet}>{diet}</li>;*/}
                   })
                 : null}
                  </div>
             </ul>
-           
         </div>
         <div className="recipe-source">
           <p>Source: {props.recipe.sourceName}</p>
