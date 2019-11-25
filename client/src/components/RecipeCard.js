@@ -22,7 +22,8 @@ function RecipeCard(props) {
         <h2>{props.recipe.title}</h2>
       </a>
       <div style={cardContents}>
-        <img src={props.recipe.image} alt={props.recipe.title} />
+        <img src={props.recipe.image} alt={props.recipe.title} 
+        />
         <div className="recipe-info">
           <div className= "prep">
             <ul>
@@ -31,18 +32,24 @@ function RecipeCard(props) {
               <li><i class="fa fa-users"></i> Serves: {props.recipe.servings}</li>
             </ul>
             </div>
+            <br></br>
             <ul>
+            <div className = "dietary-list">
               {props.recipe.diets.length
                 ? props.recipe.diets.map(diet => {
-                    return <li>{diet}</li>;
+                    return <li><i class="fa fa-check"></i>{diet}</li>;
                   })
                 : null}
+                 </div>
             </ul>
+           
         </div>
-        <div className="recipe-source-save">
+        <div className="recipe-source">
           <p>Source: {props.recipe.sourceName}</p>
+          </div>
+          < div className ="save-button">
           <button onClick={() => props.saveRecipe(props.recipe)}>
-            Save to Favorites
+           Add to <i class="fa fa-heart"></i>
           </button>
         </div>
       </div>

@@ -4,7 +4,7 @@ function Navbar(props) {
   return (
     
 <div className="topnav">
-      <a href="/favorites"><i class="fa fa-star"></i>Favorites</a>
+      <a href="/favorites"><i class="fa fa-heart"></i>Favorites</a>
       <a href="/login">Login</a>
       <a href="/">Search</a>
   </div>
