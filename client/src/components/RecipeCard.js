@@ -38,6 +38,7 @@ function RecipeCard(props) {
               {props.recipe.diets.length
                 ? props.recipe.diets.map(diet => {
                     return <li><i class="fa fa-check"></i>{diet}</li>;
+                    {/*return <li key={diet}>{diet}</li>;*/}
                   })
                 : null}
                  </div>

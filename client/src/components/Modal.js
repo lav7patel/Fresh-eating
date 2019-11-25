@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 function Modal({ handleClose, show, children, title }) {
   const showHideClassName = show ? "modal display-block" : "modal display-none";

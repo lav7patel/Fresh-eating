@@ -199,6 +199,7 @@ class Search extends Component {
                     <i class="fa fa-search"></i>
                     </div>
                   </button>
+
                   </div>
                 </div>
                 <br></br>
@@ -227,18 +228,19 @@ class Search extends Component {
           </div>
 
         </div>
-          <div style={container}>
-            {this.state.recipes.length
-              ? this.state.recipes.map(thisRecipe => {
-                  return (
-                    <RecipeCard
-                      recipe={thisRecipe}
-                      saveRecipe={this.saveRecipe}
-                    />
-                  );
-                })
-              : null}
-          </div>
+        <div style={container}>
+          {this.state.recipes.length
+            ? this.state.recipes.map(thisRecipe => {
+                return (
+                  <RecipeCard
+                    key={thisRecipe.title}
+                    recipe={thisRecipe}
+                    saveRecipe={this.saveRecipe}
+                  />
+                );
+              })
+            : null}
+        </div>
         <Modal
           show={this.state.show}
           handleClose={this.hideModal}
