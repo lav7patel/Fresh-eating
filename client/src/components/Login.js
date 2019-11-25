@@ -28,6 +28,7 @@ function Login(props) {
       API.login(userObject)
         .then(res => {
           console.log(res);
+          props.setUsername(res.data.username);
           props.history.push("/");
         })
         .catch(err => console.log(err));
