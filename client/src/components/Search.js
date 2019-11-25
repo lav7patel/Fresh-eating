@@ -179,7 +179,7 @@ class Search extends Component {
           <div className="jumbotron jumbotron-fluid">
             <div className="container">
               <h1 className="display-4">Fresh-Eating</h1>
-              <div classNAme="searchbardislplay">
+              <div className="searchbardislplay">
                 <div className="searchpart">
                   <Dropdown handleDietChange={this.handleDietChange} />
 
@@ -193,7 +193,7 @@ class Search extends Component {
                   />
                   <div className="button">
                     <button onClick={() => this.searchClick()}>
-                      <i class="fa fa-search"></i> Search
+                      <i className="fa fa-search"></i>
                     </button>
                   </div>
                 </div>
@@ -228,6 +228,7 @@ class Search extends Component {
             ? this.state.recipes.map(thisRecipe => {
                 return (
                   <RecipeCard
+                    key={thisRecipe.title}
                     recipe={thisRecipe}
                     saveRecipe={this.saveRecipe}
                   />

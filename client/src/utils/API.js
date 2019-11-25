@@ -40,6 +40,9 @@ export default {
   logout: function() {
     return axios.get("/logout");
   },
+  getUser: function() {
+    return axios.get("/user");
+  },
   addCategoryToUser: function(categoryName) {
     return axios.post("/api/usercategory", categoryName);
   },
