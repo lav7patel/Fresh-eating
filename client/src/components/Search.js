@@ -177,24 +177,29 @@ class Search extends Component {
       <>
         <div className="searchbox">
           <div className="jumbotron jumbotron-fluid">
-            <div className="container">
+           <div className="container">
+             <br></br>
               <h1 className="display-4">Fresh-Eating</h1>
-              <div className="searchbardislplay">
-                <div className="searchpart">
-                  <Dropdown handleDietChange={this.handleDietChange} />
+              <div classNAme= "searchbardislplay">
+            <div className="searchpart">
+              <div className="dropbox">
+                <Dropdown handleDietChange={this.handleDietChange} />
+                </div>
+              <input
+                className="form-control"
+                type="text"
+                placeholder="Search for a recipe"
+                name="search"
+                value={this.state.searchTerm}
+                onChange={this.handleChange}
+              />
+                <div className="button">
+                  <button onClick={() => this.searchClick()}>
+                    <div className="favorites-star">
+                    <i class="fa fa-search"></i>
+                    </div>
+                  </button>
 
-                  <input
-                    className="form-control"
-                    type="text"
-                    placeholder="Search for a recipe"
-                    name="search"
-                    value={this.state.searchTerm}
-                    onChange={this.handleChange}
-                  />
-                  <div className="button">
-                    <button onClick={() => this.searchClick()}>
-                      <i className="fa fa-search"></i>
-                    </button>
                   </div>
                 </div>
                 <br></br>
@@ -219,9 +224,9 @@ class Search extends Component {
                 </div>
               </div>
             </div>
+          <br></br>
           </div>
 
-          <br></br>
         </div>
         <div style={container}>
           {this.state.recipes.length

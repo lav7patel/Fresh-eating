@@ -27,6 +27,7 @@ function Navbar(props) {
       .catch(err => console.log(err));
   };
   return (
+
     <div className="topnav">
       {/* show username and logout button if logged in
       show login button if not logged in */}
@@ -40,7 +41,7 @@ function Navbar(props) {
       )}
 
       <a href="/favorites">
-        <i className="fa fa-star"></i>Favorites
+        <i className="fa fa-heart"></i>Favorites
       </a>
       <a href="/">Search</a>
     </div>
