@@ -26,8 +26,9 @@ function RecipeCard(props) {
         <div className="recipe-info">
           <div className= "prep">
             <ul>
-              <li>Ready In: {props.recipe.readyInMinutes}  Minutes</li>
-              <li>Servings: {props.recipe.servings}</li>
+              <li><i class="fa fa-clock-o"></i> {props.recipe.readyInMinutes}  Minutes</li>
+              
+              <li><i class="fa fa-users"></i> Serves: {props.recipe.servings}</li>
             </ul>
             </div>
             <ul>

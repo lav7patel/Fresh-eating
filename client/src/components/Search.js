@@ -166,6 +166,7 @@ class Search extends React.Component {
         <div className="searchbox">
           <div className="jumbotron jumbotron-fluid">
            <div className="container">
+             <br></br>
               <h1 className="display-4">Fresh-Eating</h1>
               <div classNAme= "searchbardislplay">
             <div className="searchpart">
