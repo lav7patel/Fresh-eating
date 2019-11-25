@@ -3,10 +3,9 @@ import React from "react";
 const card = {
   width: "48%",
   backgroundColor: "rgba(255, 255, 255, 0.5)",
-  borderBottom: "solid",
-  borderWidth: "1px",
   color: "black",
-  padding: " 10px"
+  padding: " 10px",
+  marginTop: "23px"
   /*boxShadow: "5px 10px 18px #888888"*/
 };
 
@@ -18,6 +17,7 @@ const cardContents = {
 function RecipeCard(props) {
   return (
     <div style={card}>
+      <div className= "recipe-card">
       <a href={props.recipe.sourceUrl}>
         <h2>{props.recipe.title}</h2>
       </a>
@@ -53,6 +53,8 @@ function RecipeCard(props) {
           </button>
         </div>
       </div>
+      </div>
+     
     </div>
   );
 }
