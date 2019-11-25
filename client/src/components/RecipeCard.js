@@ -24,17 +24,19 @@ function RecipeCard(props) {
       <div style={cardContents}>
         <img src={props.recipe.image} alt={props.recipe.title} />
         <div className="recipe-info">
-          <ul>
-            <li>Ready In:{props.recipe.readyInMinutes} Minutes</li>
-            <li>Servings: {props.recipe.servings}</li>
-          </ul>
-          <ul>
-            {props.recipe.diets.length
-              ? props.recipe.diets.map(diet => {
-                  return <li>{diet}</li>;
-                })
-              : null}
-          </ul>
+          <div className= "prep">
+            <ul>
+              <li>Ready In: {props.recipe.readyInMinutes}  Minutes</li>
+              <li>Servings: {props.recipe.servings}</li>
+            </ul>
+            </div>
+            <ul>
+              {props.recipe.diets.length
+                ? props.recipe.diets.map(diet => {
+                    return <li>{diet}</li>;
+                  })
+                : null}
+            </ul>
         </div>
         <div className="recipe-source-save">
           <p>Source: {props.recipe.sourceName}</p>

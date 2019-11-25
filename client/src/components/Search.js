@@ -182,7 +182,9 @@ class Search extends React.Component {
               />
                 <div className="button">
                   <button onClick={() => this.searchClick()}>
+                    <div className="favorites-star">
                     <i class="fa fa-search"></i>
+                    </div>
                   </button>
                   </div>
                 </div>

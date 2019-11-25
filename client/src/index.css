@@ -95,7 +95,7 @@ label {
 }
 
 .jumbotron {
-  background-image: url("./images/allergybackground.png");
+  background-image: url("../images/allergybackground.png");
   display: block;
   object-fit: scale-down;
   width: 100%;
@@ -237,4 +237,13 @@ button{
 .recipe-info{
   margin-top: 4px;
   margin-left: 24px;
+}
+
+.favorites-star{
+  margin: 0;
+
+}
+.prep{
+  margin: 11px;
+
 }
