@@ -2,12 +2,44 @@ import React, { useState } from "react";
 import API from "../utils/API.js";
 import { Link } from "react-router-dom";
 
+import Modal from "./Modal.js";
+
 function Login(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
 
+  const [showNegative, setShowNegative] = useState(false);
+  const [showPositive, setShowPositive] = useState(false);
+
+  const [modalData, setModalData] = useState("");
+
   const [loginPage, setLoginPage] = useState(true);
+
+  const showModal = responseData => {
+    if (responseData === "Successfully created your account") {
+      const userObject = {
+        username: username,
+        password: password
+      };
+
+      API.login(userObject)
+        .then(res => {
+          console.log(res);
+          props.setUsername(res.data.username);
+          props.history.push("/");
+        })
+        .catch(err => console.log(err));
+    } else {
+      setModalData(responseData);
+      setShowNegative(true);
+    }
+  };
+  // hides the same modal
+  const hideModal = () => {
+    setShowPositive(false);
+    setShowNegative(false);
+  };
 
   const handleChange = event => {
     if (event.target.name === "username") {
@@ -31,7 +63,9 @@ function Login(props) {
           props.setUsername(res.data.username);
           props.history.push("/");
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+          showModal("We couldn't log you in");
+        });
     } else {
       const newUserObject = {
         username: username,
@@ -41,6 +75,7 @@ function Login(props) {
       API.registerUser(newUserObject)
         .then(res => {
           console.log(res);
+          showModal(res.data);
         })
         .catch(err => console.log(err));
     }
@@ -148,6 +183,14 @@ function Login(props) {
       </div>
 
       <div id="dropDownSelect1"></div>
+      <Modal show={showNegative} handleClose={hideModal} title="modal Title">
+        <h2>Something went wrong</h2>
+        <p>{modalData}</p>
+      </Modal>
+      <Modal show={showPositive} handleClose={hideModal} title="modal Title">
+        <h2>Successfully created your account</h2>
+        <p>Please log in using the data you just entered</p>
+      </Modal>
     </>
   );
 }
