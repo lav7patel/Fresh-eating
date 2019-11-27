@@ -9,6 +9,7 @@ const session = require("express-session");
 
 const User = require("./models/user.js");
 const Recipe = require("./models/recipe.js");
+require("dotenv").config();
 
 // Express Session
 app.use(

@@ -10,7 +10,7 @@ export default {
         "content-type": "application/octet-stream",
         "x-rapidapi-host":
           "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-        "x-rapidapi-key": "a59f0571fbmsh4ee374c9e48291fp12d0bdjsna458c493e660"
+        "x-rapidapi-key": process.env.REACT_APP_SPOONACULAR_API_KEY
       },
       params: {
         query: query,
