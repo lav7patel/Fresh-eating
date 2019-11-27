@@ -1,5 +1,5 @@
 import axios from "axios";
-
+// search function with spoonacular complex search api
 export default {
   search: function(query, diet, intolerances) {
     return axios({
@@ -10,7 +10,7 @@ export default {
         "content-type": "application/octet-stream",
         "x-rapidapi-host":
           "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-        "x-rapidapi-key": "a59f0571fbmsh4ee374c9e48291fp12d0bdjsna458c493e660"
+        "x-rapidapi-key": process.env.REACT_APP_SPOONACULAR_API_KEY
       },
       params: {
         query: query,
@@ -23,9 +23,11 @@ export default {
       }
     });
   },
+  // saves a recipe to the database
   saveRecipe: function(recipe) {
     return axios.post("/api/recipe", recipe);
   },
+  // getts a users saved recipes from the database
   getSaved: function() {
     return axios.get("api/recipe");
   },
@@ -37,18 +39,23 @@ export default {
   login: function(userData) {
     return axios.post("/login", userData);
   },
+  // route for logging a user out
   logout: function() {
     return axios.get("/logout");
   },
+  // for getting user information,
   getUser: function() {
     return axios.get("/user");
   },
+  // adds a new category to the user, for later adding to recipes
   addCategoryToUser: function(categoryName) {
     return axios.post("/api/usercategory", categoryName);
   },
+  // adds a category to a recipe from the list in the user
   addCategoryToRecipe: function(categoryName) {
     return axios.post("/api/recipecategory", categoryName);
   },
+  // removes a category from the recipe
   removeCategoryFromRecipe: function(category) {
     return axios.put("/api/recipe", category);
   }
