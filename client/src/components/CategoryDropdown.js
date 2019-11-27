@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const dropdownStyle = {
-  width: "80%",
+  width: "100%",
   margin: "auto",
   height: "2rem"
 };

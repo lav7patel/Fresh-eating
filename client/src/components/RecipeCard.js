@@ -2,7 +2,7 @@ import React from "react";
 
 const card = {
   width: "48%",
-  backgroundColor: "rgba(255, 255, 255, 0.5)",
+  backgroundColor: "#ffffff80",
   color: "black",
   padding: " 10px",
   marginTop: "23px"
@@ -28,7 +28,6 @@ function RecipeCard(props) {
           <div className= "prep">
             <ul>
               <li><i class="fa fa-clock-o"></i> {props.recipe.readyInMinutes}  Minutes</li>
-              
               <li><i class="fa fa-users"></i> Serves: {props.recipe.servings}</li>
             </ul>
             </div>
@@ -37,8 +36,7 @@ function RecipeCard(props) {
             <div className = "dietary-list">
               {props.recipe.diets.length
                 ? props.recipe.diets.map(diet => {
-                    return <li><i class="fa fa-check"></i>{diet}</li>;
-                    {/*return <li key={diet}>{diet}</li>;*/}
+                    return <li key={diet}><i class="fa fa-check"></i>{diet}</li>;
                   })
                 : null}
                  </div>

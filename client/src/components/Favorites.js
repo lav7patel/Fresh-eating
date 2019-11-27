@@ -1,3 +1,4 @@
+  
 import React, { useState, useEffect } from "react";
 import API from "../utils/API.js";
 import FavoritesRecipeCard from "./FavoritesRecipCard";
@@ -86,6 +87,7 @@ function Favorites(props) {
 
   return (
     <>
+    <div className="jumbotron jumbotron-fluid">
       <CategoryDropdown
         categories={categories}
         version="main"
@@ -101,6 +103,7 @@ function Favorites(props) {
         />
       </label>
       <button onClick={addNewCategoryToUser}>Add new Category</button>
+      </div>
       <div style={container}>
         {filteredRecipes.length
           ? filteredRecipes.map(thisRecipe => {
@@ -114,6 +117,7 @@ function Favorites(props) {
             })
           : null}
       </div>
+    
     </>
   );
 }
