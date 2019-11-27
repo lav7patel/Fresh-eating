@@ -141,6 +141,7 @@ class Search extends Component {
             <div className="container">
               <br></br>
               <h1 className="display-4">Fresh-Eating</h1>
+
               <div classNAme="searchbardislplay">
                 <div className="searchpart">
                   <div className="dropbox">
