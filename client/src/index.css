@@ -1,3 +1,4 @@
+/* body of search and favorites page*/
 body {
   margin: 0;
   padding: 0;
@@ -8,7 +9,7 @@ body {
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-
+/*nav edits for each page*/
 .topnav {
   overflow: hidden;
   background-color: #dcb697;
@@ -27,7 +28,7 @@ body {
   float: right;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
-
+/* dropdown for search page*/
 .dropdown {
   float: left;
   overflow: hidden;
@@ -91,7 +92,7 @@ label {
   padding-right: 0.5em;
   color: black;
 }
-
+/* where main image on search page is displayed*/
 .jumbotron {
   background-image: url("/images/allergybackgroundfinal.png");
   display: block;
@@ -106,7 +107,8 @@ label {
   margin-right: 0;
   background-size: cover;
   color: black;
-}
+ }
+/* project title*/
 
 h1 {
   text-align: center;
