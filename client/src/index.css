@@ -78,7 +78,7 @@ body {
   padding: 0;
   margin-top: -2px;
 }
-.checkbox {
+.checkbox,.favorites-dropdown {
   padding: 12px;
   margin-top: 7px;
   background-color: #f8f7f6c9;

@@ -88,35 +88,43 @@ function Favorites(props) {
   return (
     <>
     <div className="jumbotron jumbotron-fluid">
-      <CategoryDropdown
-        categories={categories}
-        version="main"
-        filterRecipes={filterRecipes}
-      />
-      <label>
-        Add a Category
-        <input
-          type="text"
-          value={newCategory}
-          onChange={handleChange}
-          name="username"
-        />
-      </label>
-      <button onClick={addNewCategoryToUser}>Add new Category</button>
-      </div>
-      <div style={container}>
-        {filteredRecipes.length
-          ? filteredRecipes.map(thisRecipe => {
-              return (
-                <FavoritesRecipeCard
-                  recipe={thisRecipe}
-                  categories={categories}
-                  getSavedRecipes={getSavedRecipes}
-                />
-              );
-            })
-          : null}
-      </div>
+      <div className="container">
+        <br></br>
+        <div className="favorites-dropdown">
+        <h1 className="display-4">Fresh-Eating</h1>
+        <br></br>
+          <CategoryDropdown
+            categories={categories}
+            version="main"
+            filterRecipes={filterRecipes}
+          />
+          <label>
+            Add a Category
+            <input
+              type="text"
+              value={newCategory}
+              onChange={handleChange}
+              name="username"
+            />
+          </label>
+          <button onClick={addNewCategoryToUser}>Add new Category</button>
+          </div>
+        </div>
+        <br></br>
+        </div>
+          <div style={container}>
+            {filteredRecipes.length
+              ? filteredRecipes.map(thisRecipe => {
+                  return (
+                    <FavoritesRecipeCard
+                      recipe={thisRecipe}
+                      categories={categories}
+                      getSavedRecipes={getSavedRecipes}
+                    />
+                  );
+                })
+              : null}
+          </div>
     
     </>
   );
