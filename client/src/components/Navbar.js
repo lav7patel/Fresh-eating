@@ -8,7 +8,6 @@ function Navbar(props) {
   useEffect(() => {
     API.getUser()
       .then(res => {
-        console.log(res);
         setUsername(res.data.username);
       })
       .catch(err => console.log(err));
@@ -22,12 +21,11 @@ function Navbar(props) {
   const logout = () => {
     API.logout()
       .then(res => {
-        console.log(res);
+        setUsername("");
       })
       .catch(err => console.log(err));
   };
   return (
-
     <div className="topnav">
       {/* show username and logout button if logged in
       show login button if not logged in */}
