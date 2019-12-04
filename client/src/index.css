@@ -76,9 +76,8 @@ body {
   width: 40%;
   padding: 0;
   margin-top: -2px;
-  
 }
-.checkbox{
+.checkbox {
   padding: 12px;
   margin-top: 7px;
   background-color: #f8f7f6c9;
@@ -86,17 +85,16 @@ body {
   text-align: left;
 }
 .favorites-dropdown {
-padding: 12px;
-margin-top: 7px;
-background-color: #f8f7f6c9;
-width: 100%;
-text-align: left;
+  padding: 12px;
+  margin-top: 7px;
+  background-color: #f8f7f6c9;
+  width: 100%;
+  text-align: left;
 }
 
-.wholebox{
+.wholebox {
   background-color: #f8f7f6c9;
 }
-
 
 label {
   /*padding-right: 0.5em;
@@ -119,7 +117,7 @@ label {
   margin-right: 0;
   background-size: cover;
   color: black;
- }
+}
 /* project title*/
 
 h1 {
@@ -134,7 +132,6 @@ h1 {
   color: black;
   font-variant: small-caps;
 }
-
 
 .diet-boxes {
   margin-left: 2 em;
@@ -186,26 +183,26 @@ img {
 
 }*/
 .button {
-    background:#f8f8f8;
-    background: solid;
-    text-rendering: auto;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: center;
-    align-items: flex-start;
-    cursor: default;
-    box-sizing: border-box;
-    margin: 0em;
-    font: 400 20px system-ui;
-    padding: 0;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
-    border-image: initial;
+  background: #f8f8f8;
+  background: solid;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: default;
+  box-sizing: border-box;
+  margin: 0em;
+  font: 400 20px system-ui;
+  padding: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+  border-image: initial;
 }
 
 .searchpart {
@@ -215,7 +212,8 @@ img {
   float: left;
   margin-top: 9px;
 }
-.form-control, .input {
+.form-control,
+.input {
   height: 2em;
   width: 68%;
 }
@@ -344,12 +342,12 @@ button {
   padding: 3px;
 }
 
-.recipe-info{
+.recipe-info {
   padding: 1px;
 }
 
-.recipe-source, h4{
-
+.recipe-source,
+h4 {
   font-family: Poppins-Regular;
   font-size: 14px;
   line-height: 1.7;
@@ -380,11 +378,15 @@ button {
   color: gray;
 }
 
-.category-input{
-  border: 1px solid rgba(0,0,0,.5);    
+.category-input {
+  border: 1px solid rgba(0, 0, 0, 0.5);
   line-height: 2em;
   padding-left: 7px;
   padding-right: 34px;
+}
+
+
+
   width: 231px;
 
 }
@@ -400,8 +402,7 @@ h6{
   margin-top: -8px;
   margin-bottom: 14px;
 }
-
-/*
+/* need these for the modal */
 .display-block {
   display: block;
 }
@@ -409,5 +410,3 @@ h6{
 .display-none {
   display: none;
 }
-*/
-
