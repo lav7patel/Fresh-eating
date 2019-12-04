@@ -385,13 +385,9 @@ h4 {
   line-height: 2em;
   padding-left: 7px;
   padding-right: 34px;
-}
-
-
-
   width: 231px;
-
 }
+
 
 
 h6{
@@ -436,3 +432,7 @@ h7{
   display: none;
 }
 
+.close-button{
+  float:right;
+  margin-right: 6px;
+}
