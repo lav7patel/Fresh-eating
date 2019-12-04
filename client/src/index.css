@@ -88,7 +88,7 @@ body {
 }
 .favorites-dropdown {
 padding: 12px;
-margin-top: 7px;
+margin-top: 8px;
 background-color: #f8f7f6c9;
 width: 100%;
 text-align: left;
@@ -100,9 +100,9 @@ text-align: left;
 
 
 label {
-  /*padding-right: 0.5em;
+  padding-right: 0.5em;
   color: black;
-  margin-top: 9px;
+  margin-top: 0px;
   /*border: 1px solid rgba(0,0,0,.15);*/
 }
 
@@ -141,7 +141,7 @@ h1 {
   padding-left: 2 em;
 }
 .intolerance-boxes {
-  padding: 15px 19px 6px 19px;
+  padding: 13px 19px 6px 19px;
   background-color: #70595436;
 
 }
@@ -346,11 +346,11 @@ button{
   outline: inset;
   background: #f8f8f8;
   padding: 4px;
+  margin-left: -8px;
   }
 
 .recipe-info{
   padding: 1px;
-
 }
 
 .recipe-source, h4{
@@ -401,15 +401,30 @@ h6{
   background-color: #7059547d;
   opacity: 1;
   padding: 5px 5em 5px 5em;
-  margin-top: -8px;
-  margin-bottom: 14px;
+  margin-top: -14px;
+  margin-bottom: 9px;
+
+  
 }
 
 h7{
   display: inline-block;
-  margin-left: 17em;
+  margin: auto;
+  border: 1px solid rgba(0,0,0,.05);
+  padding-right: 3px;
+  padding-left: 3px;
+  width: 38px;
+  text-align: center;
 }
 
 .create-category{
-  margin-top: 1px;
+  margin-top: 5px;
+  position: relative;
+  left: 25%;
+}
+
+.or{
+  position: relative;
+  left: 46%;
+  width: 25px;
 }
