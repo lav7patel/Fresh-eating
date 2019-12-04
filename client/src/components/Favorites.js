@@ -91,7 +91,7 @@ function Favorites(props) {
       <div className="container">
         <br></br>
         <div className="favorites-dropdown">
-        <h1 className="display-4">Fresh-Eating</h1>
+        <h1 className="display-4">Fresh-Eats</h1>
         <br></br>
           <CategoryDropdown
             categories={categories}
@@ -99,15 +99,16 @@ function Favorites(props) {
             filterRecipes={filterRecipes}
           />
           <label>
-            Add a Category
             <input
+              className="category-input"
+              placeholder="Create a New Category"
               type="text"
               value={newCategory}
               onChange={handleChange}
               name="username"
             />
           </label>
-          <button onClick={addNewCategoryToUser}>Add new Category</button>
+          <button onClick={addNewCategoryToUser}>Save</button>
           </div>
         </div>
         <br></br>
