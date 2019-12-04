@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 
 const dropdownStyle = {
-  width: "100%",
-  marginBottom: "13px",
-  height: "2rem"
+  width: "70%",
+  marginBottom: "6px",
+  marginTop: "1px",
+  height: "34px",
+  left: "14%",
+  position: "relative",
 };
 
 function CategoryDropdown(props) {
