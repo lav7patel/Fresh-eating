@@ -7,6 +7,10 @@ import Dropdown from "./Dropdown";
 import Modal from "./Modal.js";
 import { SSL_OP_SINGLE_DH_USE } from "constants";
 
+// gettin json with all the intolerances for the checkboxes
+import intolerancesCheckboxes from "./data/Intolerances.json";
+
+// some basic css for the section that shows the returned recipes
 let container = {
   width: "100%",
   height: "100%",
@@ -17,64 +21,6 @@ let container = {
  
 };
 
-const intolerancesCheckboxes = [
-  {
-    name: "Dairy",
-    key: "checkBox6",
-    label: "Check Box 2"
-  },
-  {
-    name: "Egg",
-    key: "checkBox7",
-    label: "Check Box 3"
-  },
-  {
-    name: "Gluten",
-    key: "checkBox8",
-    label: "Check Box 4"
-  },
-  {
-    name: "Peanut",
-    key: "checkBox9",
-    label: "Check Box 1"
-  },
-  {
-    name: "Sesame",
-    key: "checkBox10",
-    label: "Check Box 2"
-  },
-  {
-    name: "Seafood",
-    key: "checkBox11",
-    label: "Check Box 3"
-  },
-  {
-    name: "Shellfish",
-    key: "checkBox12"
-  },
-  {
-    name: "Soy",
-    key: "checkBox13",
-    label: "Check Box 4"
-  },
-
-  {
-    name: "Sulfite",
-    key: "checkBox14",
-    label: "Check Box 4"
-  },
-  {
-    name: "Tree Nuts",
-    key: "checkBox15",
-    label: "Check Box 4"
-  },
-  {
-    name: "Wheat",
-    key: "checkBox16",
-    label: "Check Box 4"
-  }
-];
-
 //function Search(props) {
 // render() {
 class Search extends Component {
@@ -82,12 +28,17 @@ class Search extends Component {
     super(props);
 
     this.state = {
-      showActionFilterList: false,
-      checkedDiets: new Map(),
+      // for checkboxes
+      // showActionFilterList: false,
+      // map that holds the checkbox information
       checkedIntolerances: new Map(),
+      //array for recipes from API
       recipes: [],
+      // what the user enters in searchbox
       searchTerm: "",
+      // diet user selects from dropdown
       diet: "",
+      // for the modal informing user of successfully saving recipe to database
       show: false
     };
 
@@ -96,18 +47,19 @@ class Search extends Component {
       this
     );
   }
+  // function to show modal with recipe add confirmation
   showModal = () => {
     this.setState({ show: true });
   };
-
+  // hides the same modal
   hideModal = () => {
     this.setState({ show: false });
   };
 
-  showList = () =>
+  /*   showList = () =>
     this.setState(prevState => ({
       showActionFilterList: !prevState.showActionFilterList
-    }));
+    })); */
 
   // handles diet dropdown
   handleDietChange(diet) {
@@ -140,22 +92,29 @@ class Search extends Component {
 
   // run when search is clicked, crates the object to send to the API
   searchClick = () => {
+    // gets search term and diet from the state
     const query = this.state.searchTerm;
     let diet = this.state.diet;
+    // new varraiable to hold the list of intolerances, the list needs to be seperated by commas
     let intolerances = "";
     for (let key of this.state.checkedIntolerances.keys()) {
+      // creating the string that will be sent to the api, gets every checkbox if it's checked and adds that name to the intolerances string
       intolerances += `${key},`;
     }
+    console.log(intolerances);
     if (diet !== "None" || diet !== "Choose A Diet") {
       this.searchAPI(query, diet, intolerances);
     } else {
+      // if they did not select a diet preference send an empty diet object
       diet = "";
+      /// searhces the api with all of the preferences
       this.searchAPI(query, diet, intolerances);
     }
   };
 
   // saves recipe to the database
   saveRecipe = recipe => {
+    // gets the info needed from the api object and creates a new object to match the model
     const recipeForDB = {
       title: recipe.title,
       sourceUrl: recipe.sourceUrl,
@@ -167,9 +126,11 @@ class Search extends Component {
       diets: recipe.diets
     };
 
+    // saving recipe to database, using object just created
     API.saveRecipe(recipeForDB)
       .then(res => {
         this.showModal();
+        console.log("recipe saved");
       })
       .catch(err => console.log(err));
   };
@@ -225,7 +186,7 @@ class Search extends Component {
                   </div>
                 </div>
             </div>
-          <br></br>
+            <br></br>
           </div>
         </div>
         <div style={container}>

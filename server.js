@@ -175,13 +175,10 @@ app.post("/register", (req, res) => {
 
         User.createUser(newUser, (err, user) => {
           if (err) throw err;
-          res.send(user).end();
+          res.send("Successfully created your account").end();
         });
       } else {
-        res
-          .status(500)
-          .send('{errors: "Passwords don\'t match"}')
-          .end();
+        res.send("Passwords don't match").end();
       }
     }
   });
