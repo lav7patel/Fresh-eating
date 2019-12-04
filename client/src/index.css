@@ -77,21 +77,33 @@ body {
   width: 40%;
   padding: 0;
   margin-top: -2px;
+  
 }
-.checkbox,.favorites-dropdown {
+.checkbox{
   padding: 12px;
   margin-top: 7px;
   background-color: #f8f7f6c9;
   width: 100%;
   text-align: left;
 }
-input {
-  padding: 1em;
+.favorites-dropdown {
+padding: 12px;
+margin-top: 7px;
+background-color: #f8f7f6c9;
+width: 100%;
+text-align: left;
 }
 
+.wholebox{
+  background-color: #f8f7f6c9;
+}
+
+
 label {
-  padding-right: 0.5em;
+  /*padding-right: 0.5em;
   color: black;
+  margin-top: 9px;
+  /*border: 1px solid rgba(0,0,0,.15);*/
 }
 
 .jumbotron {
@@ -123,12 +135,6 @@ h1 {
   font-variant: small-caps;
 }
 
-.dispay-4 {
-  margin-right: 0;
-  text-align: center;
-  background-color: white;
-  color: black;
-}
 
 .diet-boxes {
   margin-left: 2 em;
@@ -156,7 +162,7 @@ h3 {
   background-color: #7059547d;
   opacity: 1;
   padding: 2px 5em 2px 5em;
-  margin-top: 5px;
+  margin-top: 27px;
   margin-bottom: 15px;
 }
 
@@ -200,16 +206,17 @@ img {
     border-style: solid;
     border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
     border-image: initial;
+    
 }
 
 .searchpart {
-  width: 100%;
+  width: 100.25%;
   display: inline-flex;
   height: 2em;
   float: left;
-  margin: 0;
+  margin-top: 9px;
 }
-.form-control {
+.form-control, .input {
   height: 2em;
   width: 68%;
 }
@@ -338,27 +345,22 @@ button{
   background: #f8f8f8;
   padding: 3px;
   }
-.prep{
+
+.recipe-info{
+  padding: 1px;
 
 }
-  .recipe-info{
-    padding: 1px;
 
-  }
-
-  .diet-restrictions{
-
-  }
-  .recipe-source, h4{
-    font-family: Poppins-Regular;
-    font-size: 14px;
-    line-height: 1.7;
-    color: #666666;
-    margin: 17em 10px 2px 3em;
-    float: right;
-    width: 23%;
-    position: absolute;
-  }
+.recipe-source, h4{
+  font-family: Poppins-Regular;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #666666;
+  margin: 17em 10px 2px 3em;
+  float: right;
+  width: 23%;
+  position: absolute;
+}
 
 .fa-heart{
   padding-left: 1px;
@@ -379,4 +381,12 @@ button{
 
 .fa-check{
   color: gray;
+}
+
+.category-input{
+  border: 1px solid rgba(0,0,0,.5);    
+  line-height: 2em;
+  padding-left: 7px;
+  padding-right: 34px;
+
 }

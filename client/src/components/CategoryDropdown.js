@@ -21,11 +21,11 @@ function CategoryDropdown(props) {
   return (
     <select value={dropValue} onChange={handleChange} style={dropdownStyle}>
       {props.version === "recipeCard" ? (
-        <option value="Add a Category">Add a Category</option>
+        <option value="Add a Category">Add to Category</option>
       ) : (
         <>
           <option value="Pick a category to filter">
-            Pick a category to filter
+            Your Categories
           </option>
           <option value="All">All</option>
           <option value="Uncategorized">Uncategorized</option>

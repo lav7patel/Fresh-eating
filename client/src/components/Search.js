@@ -5,6 +5,7 @@ import API from "../utils/API.js";
 import RecipeCard from "./RecipeCard.js";
 import Dropdown from "./Dropdown";
 import Modal from "./Modal.js";
+import { SSL_OP_SINGLE_DH_USE } from "constants";
 
 let container = {
   width: "100%",
@@ -12,7 +13,8 @@ let container = {
   display: "flex",
   justifyContent: "space-around",
   flexWrap: "wrap",
-  flexDirection: "row"
+  flexDirection: "row",
+ 
 };
 
 const intolerancesCheckboxes = [
@@ -178,55 +180,53 @@ class Search extends Component {
         <div className="searchbox">
           <div className="jumbotron jumbotron-fluid">
            <div className="container">
-             <br></br>
-              <h1 className="display-4">Fresh-Eating</h1>
-              <div className= "searchbardislplay">
-            <div className="searchpart">
-              <div className="dropbox">
-                <Dropdown handleDietChange={this.handleDietChange} />
-                </div>
-              <input
-                className="form-control"
-                type="text"
-                placeholder="Search for a recipe"
-                name="search"
-                value={this.state.searchTerm}
-                onChange={this.handleChange}
-              />
-                <div className="button">
-                  <button onClick={() => this.searchClick()}>
-                    <div className="favorites-star">
-                    <i class="fa fa-search"></i>
-                    </div>
-                  </button>
-
+              <br></br>
+              <div className= "checkbox">
+                <h1 className="display-4">Fresh-Eats</h1>
+                <div className= "searchbardislplay">
+              <div className="searchpart">
+                <div className="dropbox">
+                  <Dropdown handleDietChange={this.handleDietChange} />
                   </div>
-                </div>
-                <br></br>
-                <div className="checkbox">
-                  <div className="restrictions">
-                    <h3> Restrictions </h3>
-                    <div className="intolerance-boxes">
-                      {intolerancesCheckboxes.map(item => (
-                        <label key={item.key}>
-                          <Checkbox
-                            checked={this.state.checkedIntolerances.get(
-                              item.name
-                            )}
-                            name={item.name}
-                            onChange={this.handleIntoleranceCheckChange}
-                          />
-                          {item.name}
-                        </label>
-                      ))}
+                <input
+                  className="form-control"
+                  type="text"
+                  placeholder="Search for a recipe"
+                  name="search"
+                  value={this.state.searchTerm}
+                  onChange={this.handleChange}
+                />
+                  <div className="button">
+                    <button onClick={() => this.searchClick()}>
+                      <div className="favorites-star">
+                      <i class="fa fa-search"></i>
+                      </div>
+                    </button>
                     </div>
                   </div>
+                  <br></br>
+                    <div className="restrictions">
+                      <h3> Restrictions </h3>
+                      <div className="intolerance-boxes">
+                        {intolerancesCheckboxes.map(item => (
+                          <label key={item.key}>
+                            <Checkbox
+                              checked={this.state.checkedIntolerances.get(
+                                item.name
+                              )}
+                              name={item.name}
+                              onChange={this.handleIntoleranceCheckChange}
+                            />
+                            {item.name}
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
             </div>
           <br></br>
           </div>
-
         </div>
         <div style={container}>
           {this.state.recipes.length
