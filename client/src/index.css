@@ -11,6 +11,7 @@ body {
 }
 /*nav edits for each page*/
 .topnav {
+  height:34px;
   overflow: hidden;
   background-color: #dcb697;
   padding: 0;
@@ -369,10 +370,6 @@ h4 {
   color: #b05e5e;
 }
 
-.favorites-star {
-  margin: 0 !important;
-}
-
 .dietary-list {
   list-style-type: solid;
   width: 150%;
@@ -406,8 +403,6 @@ h6{
   padding: 5px 5em 5px 5em;
   margin-top: -14px;
   margin-bottom: 9px;
-
-  
 }
 
 h7{
@@ -416,7 +411,7 @@ h7{
   border: 1px solid rgba(0,0,0,.05);
   padding-right: 3px;
   padding-left: 3px;
-  width: 38px;
+  width: 47px;
   text-align: center;
 }
 
@@ -429,7 +424,7 @@ h7{
 .or{
   position: relative;
   left: 46%;
-  width: 25px;
+  width: 47px;
 }
 
 /* need these for the modal */
@@ -440,3 +435,4 @@ h7{
 .display-none {
   display: none;
 }
+

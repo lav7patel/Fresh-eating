@@ -28,7 +28,7 @@ function CategoryDropdown(props) {
       ) : (
         <>
           <option value="Pick a category to filter">
-            Your Categories
+            Choose Your Category
           </option>
           <option value="All">All</option>
           <option value="Uncategorized">Uncategorized</option>
