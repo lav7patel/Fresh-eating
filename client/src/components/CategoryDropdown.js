@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const dropdownStyle = {
   width: "100%",
-  margin: "auto",
+  marginBottom: "13px",
   height: "2rem"
 };
 
