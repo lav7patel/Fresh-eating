@@ -93,6 +93,9 @@ function Favorites(props) {
         <div className="favorites-dropdown">
         <h1 className="display-4">Fresh-Eats</h1>
         <br></br>
+        <div className= "favorites-cont">
+        <h6> Welcome to Your Favorites</h6>
+        </div>
           <CategoryDropdown
             categories={categories}
             version="main"
@@ -106,6 +109,7 @@ function Favorites(props) {
               value={newCategory}
               onChange={handleChange}
               name="username"
+          
             />
           </label>
           <button onClick={addNewCategoryToUser}>Save</button>

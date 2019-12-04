@@ -385,8 +385,22 @@ button {
   line-height: 2em;
   padding-left: 7px;
   padding-right: 34px;
+  width: 231px;
 
 }
+
+
+h6{
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 1.5em;
+  background-color: #7059547d;
+  opacity: 1;
+  padding: 2px 5em 2px 5em;
+  margin-top: -8px;
+  margin-bottom: 14px;
+}
+
 /*
 .display-block {
   display: block;
@@ -396,3 +410,4 @@ button {
   display: none;
 }
 */
+
