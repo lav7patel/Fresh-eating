@@ -101,8 +101,9 @@ function Favorites(props) {
             version="main"
             filterRecipes={filterRecipes}
           />
+          <div className="or">
           <h7>OR</h7>
-          <br></br>
+          </div>
           <div className="create-category">
           <label>
             <input
