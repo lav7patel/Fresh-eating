@@ -101,6 +101,9 @@ function Favorites(props) {
             version="main"
             filterRecipes={filterRecipes}
           />
+          <h7>OR</h7>
+          <br></br>
+          <div className="create-category">
           <label>
             <input
               className="category-input"
@@ -113,6 +116,7 @@ function Favorites(props) {
             />
           </label>
           <button onClick={addNewCategoryToUser}>Save</button>
+          </div>
           </div>
         </div>
         <br></br>

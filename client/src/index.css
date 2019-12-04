@@ -141,8 +141,9 @@ h1 {
   padding-left: 2 em;
 }
 .intolerance-boxes {
-  margin-left: 1em;
-  padding-left: 1em;
+  padding: 15px 19px 6px 19px;
+  background-color: #70595436;
+
 }
 
 h2 {
@@ -162,8 +163,9 @@ h3 {
   background-color: #7059547d;
   opacity: 1;
   padding: 2px 5em 2px 5em;
+  padding: 5px 5em 5px 5em;
   margin-top: 27px;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
 }
 
 a {
@@ -217,7 +219,7 @@ img {
   margin-top: 9px;
 }
 .form-control, .input {
-  height: 2em;
+  height: 34px;
   width: 68%;
 }
 
@@ -343,7 +345,7 @@ button{
   border: 1px solid rgba(0,0,0,.15);
   outline: inset;
   background: #f8f8f8;
-  padding: 3px;
+  padding: 4px;
   }
 
 .recipe-info{
@@ -384,7 +386,7 @@ button{
 }
 
 .category-input{
-  border: 1px solid rgba(0,0,0,.5);    
+  border: 1px solid rgba(0,0,0,.15);    
   line-height: 2em;
   padding-left: 7px;
   padding-right: 34px;
@@ -398,7 +400,16 @@ h6{
   font-size: 1.5em;
   background-color: #7059547d;
   opacity: 1;
-  padding: 2px 5em 2px 5em;
+  padding: 5px 5em 5px 5em;
   margin-top: -8px;
   margin-bottom: 14px;
+}
+
+h7{
+  display: inline-block;
+  margin-left: 17em;
+}
+
+.create-category{
+  margin-top: 1px;
 }

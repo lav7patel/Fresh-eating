@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const dropdownStyle = {
-  height: "32px",
+  height: "34px",
   maring: "0"
 };
 
