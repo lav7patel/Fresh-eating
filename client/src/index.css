@@ -1,3 +1,4 @@
+/* body of search and favorites page*/
 body {
   margin: 0;
   padding: 0;
@@ -8,7 +9,7 @@ body {
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-
+/*nav edits for each page*/
 .topnav {
   overflow: hidden;
   background-color: #dcb697;
@@ -27,7 +28,7 @@ body {
   float: right;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
-
+/* dropdown for search page*/
 .dropdown {
   float: left;
   overflow: hidden;
@@ -75,23 +76,35 @@ body {
   width: 40%;
   padding: 0;
   margin-top: -2px;
+  
 }
-.checkbox {
+.checkbox{
   padding: 12px;
   margin-top: 7px;
   background-color: #f8f7f6c9;
   width: 100%;
   text-align: left;
 }
-input {
-  padding: 1em;
+.favorites-dropdown {
+padding: 12px;
+margin-top: 7px;
+background-color: #f8f7f6c9;
+width: 100%;
+text-align: left;
 }
+
+.wholebox{
+  background-color: #f8f7f6c9;
+}
+
 
 label {
-  padding-right: 0.5em;
+  /*padding-right: 0.5em;
   color: black;
+  margin-top: 9px;
+  /*border: 1px solid rgba(0,0,0,.15);*/
 }
-
+/* where main image on search page is displayed*/
 .jumbotron {
   background-image: url("/images/allergybackgroundfinal.png");
   display: block;
@@ -106,7 +119,8 @@ label {
   margin-right: 0;
   background-size: cover;
   color: black;
-}
+ }
+/* project title*/
 
 h1 {
   text-align: center;
@@ -121,12 +135,6 @@ h1 {
   font-variant: small-caps;
 }
 
-.dispay-4 {
-  margin-right: 0;
-  text-align: center;
-  background-color: white;
-  color: black;
-}
 
 .diet-boxes {
   margin-left: 2 em;
@@ -154,7 +162,7 @@ h3 {
   background-color: #7059547d;
   opacity: 1;
   padding: 2px 5em 2px 5em;
-  margin-top: 5px;
+  margin-top: 27px;
   margin-bottom: 15px;
 }
 
@@ -178,36 +186,36 @@ img {
 
 }*/
 .button {
-  background: #f8f8f8;
-  background: solid;
-  text-rendering: auto;
-  letter-spacing: normal;
-  word-spacing: normal;
-  text-transform: none;
-  text-indent: 0px;
-  text-shadow: none;
-  display: inline-block;
-  text-align: center;
-  align-items: flex-start;
-  cursor: default;
-  box-sizing: border-box;
-  margin: 0em;
-  font: 400 20px system-ui;
-  padding: 0;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
-  border-image: initial;
+    background:#f8f8f8;
+    background: solid;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    margin: 0em;
+    font: 400 20px system-ui;
+    padding: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+    border-image: initial;
 }
 
 .searchpart {
-  width: 100%;
+  width: 100.25%;
   display: inline-flex;
   height: 2em;
   float: left;
-  margin: 0;
+  margin-top: 9px;
 }
-.form-control {
+.form-control, .input {
   height: 2em;
   width: 68%;
 }
@@ -335,16 +343,13 @@ button {
   background: #f8f8f8;
   padding: 3px;
 }
-.prep {
-}
-.recipe-info {
+
+.recipe-info{
   padding: 1px;
 }
 
-.diet-restrictions {
-}
-.recipe-source,
-h4 {
+.recipe-source, h4{
+
   font-family: Poppins-Regular;
   font-size: 14px;
   line-height: 1.7;
@@ -375,6 +380,14 @@ h4 {
   color: gray;
 }
 
+.category-input{
+  border: 1px solid rgba(0,0,0,.5);    
+  line-height: 2em;
+  padding-left: 7px;
+  padding-right: 34px;
+
+}
+/*
 .display-block {
   display: block;
 }
@@ -382,3 +395,4 @@ h4 {
 .display-none {
   display: none;
 }
+*/

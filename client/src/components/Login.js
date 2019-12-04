@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import API from "../utils/API.js";
+import "./login.css";
 import { Link } from "react-router-dom";
 
 import Modal from "./Modal.js";
@@ -170,7 +171,7 @@ function Login(props) {
                 <span className="txt1">Don’t have an account?</span>
 
                 <Link onClick={switchPage} className="txt2">
-                  signup
+                  Sign Up
                 </Link>
 
                 {/* <a className="txt2" href="#">

@@ -4,12 +4,10 @@ import API from "../utils/API.js";
 
 const card = {
   width: "48%",
-  backgroundColor: "#2b0c064a;",
-  // border: "solid",
+  backgroundColor: "#ffffff80",
   color: "black",
-  // border: "1px solid",
-  padding: " 10px"
-  /*boxShadow: "5px 10px 18px #888888"*/
+  padding: " 10px",
+  marginTop: "23px"
 };
 
 const cardContents = {
@@ -95,15 +93,18 @@ function FavoritesRecipeCard(props) {
         <img src={recipe.image} alt={recipe.title} className="img-fluid" />
         <div>
           <ul>
-            <li>Ready In:{recipe.readyInMinutes} Minutes</li>
-            <li>Servings: {recipe.servings}</li>
+          <li><i class="fa fa-clock-o"></i> {recipe.readyInMinutes} Minutes</li>
+          <li><i class="fa fa-users"></i> Serves: {recipe.servings}</li>
           </ul>
+          <br></br>
           <ul>
+          <div className = "dietary-list">
             {recipe.diets
               ? recipe.diets.map(diet => {
-                  return <li key={diet}>{diet}</li>;
+                return <li key={diet}><i class="fa fa-check"></i>{diet}</li>;
                 })
               : null}
+            </div>
           </ul>
           <ul>
             {categories
@@ -123,8 +124,10 @@ function FavoritesRecipeCard(props) {
               : null}
           </ul>
         </div>
-        <div>
+        <div className="recipe-source">
           <p>Source: {recipe.sourceName}</p>
+          </div>
+          <div className="category-dropdown">
           <CategoryDropdown
             categories={unusedCategories}
             addCategory={addCategory}

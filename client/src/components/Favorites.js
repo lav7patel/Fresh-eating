@@ -1,3 +1,4 @@
+  
 import React, { useState, useEffect } from "react";
 import API from "../utils/API.js";
 import FavoritesRecipeCard from "./FavoritesRecipCard";
@@ -86,34 +87,46 @@ function Favorites(props) {
 
   return (
     <>
-      <CategoryDropdown
-        categories={categories}
-        version="main"
-        filterRecipes={filterRecipes}
-      />
-      <label>
-        Add a Category
-        <input
-          type="text"
-          value={newCategory}
-          onChange={handleChange}
-          name="username"
-        />
-      </label>
-      <button onClick={addNewCategoryToUser}>Add new Category</button>
-      <div style={container}>
-        {filteredRecipes.length
-          ? filteredRecipes.map(thisRecipe => {
-              return (
-                <FavoritesRecipeCard
-                  recipe={thisRecipe}
-                  categories={categories}
-                  getSavedRecipes={getSavedRecipes}
-                />
-              );
-            })
-          : null}
-      </div>
+    <div className="jumbotron jumbotron-fluid">
+      <div className="container">
+        <br></br>
+        <div className="favorites-dropdown">
+        <h1 className="display-4">Fresh-Eats</h1>
+        <br></br>
+          <CategoryDropdown
+            categories={categories}
+            version="main"
+            filterRecipes={filterRecipes}
+          />
+          <label>
+            <input
+              className="category-input"
+              placeholder="Create a New Category"
+              type="text"
+              value={newCategory}
+              onChange={handleChange}
+              name="username"
+            />
+          </label>
+          <button onClick={addNewCategoryToUser}>Save</button>
+          </div>
+        </div>
+        <br></br>
+        </div>
+          <div style={container}>
+            {filteredRecipes.length
+              ? filteredRecipes.map(thisRecipe => {
+                  return (
+                    <FavoritesRecipeCard
+                      recipe={thisRecipe}
+                      categories={categories}
+                      getSavedRecipes={getSavedRecipes}
+                    />
+                  );
+                })
+              : null}
+          </div>
+    
     </>
   );
 }
