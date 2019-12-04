@@ -102,7 +102,7 @@ function Favorites(props) {
             filterRecipes={filterRecipes}
           />
           <div className="or">
-          <h7>OR</h7>
+          <h7>-OR-</h7>
           </div>
           <div className="create-category">
           <label>

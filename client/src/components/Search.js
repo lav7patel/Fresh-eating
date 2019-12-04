@@ -198,7 +198,7 @@ class Search extends Component {
                 />
                   <div className="button">
                     <button onClick={() => this.searchClick()}>
-                      <div className="favorites-star">
+                      <div className="search-button">
                       <i class="fa fa-search"></i>
                       </div>
                     </button>
