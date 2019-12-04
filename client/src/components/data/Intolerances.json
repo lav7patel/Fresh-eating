@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Dairy",
+    "key": "checkBox6",
+    "label": "Check Box 2"
+  },
+  {
+    "name": "Egg",
+    "key": "checkBox7",
+    "label": "Check Box 3"
+  },
+  {
+    "name": "Gluten",
+    "key": "checkBox8",
+    "label": "Check Box 4"
+  },
+  {
+    "name": "Peanut",
+    "key": "checkBox9",
+    "label": "Check Box 1"
+  },
+  {
+    "name": "Sesame",
+    "key": "checkBox10",
+    "label": "Check Box 2"
+  },
+  {
+    "name": "Seafood",
+    "key": "checkBox11",
+    "label": "Check Box 3"
+  },
+  {
+    "name": "Shellfish",
+    "key": "checkBox12"
+  },
+  {
+    "name": "Soy",
+    "key": "checkBox13",
+    "label": "Check Box 4"
+  },
+
+  {
+    "name": "Sulfite",
+    "key": "checkBox14",
+    "label": "Check Box 4"
+  },
+  {
+    "name": "Tree Nuts",
+    "key": "checkBox15",
+    "label": "Check Box 4"
+  },
+  {
+    "name": "Wheat",
+    "key": "checkBox16",
+    "label": "Check Box 4"
+  }
+]

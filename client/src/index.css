@@ -1,16 +1,16 @@
+/* body of search and favorites page*/
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-image: url("/images/bodybackground.png"); 
+  background-image: url("/images/bodybackground.png");
   background-color: #eaddc6;
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
-
+/*nav edits for each page*/
 .topnav {
-
   overflow: hidden;
   background-color: #dcb697;
   padding: 0;
@@ -27,9 +27,8 @@ body {
   border-color: #7059548f;
   float: right;
   font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-
 }
-
+/* dropdown for search page*/
 .dropdown {
   float: left;
   overflow: hidden;
@@ -77,9 +76,8 @@ body {
   width: 40%;
   padding: 0;
   margin-top: -2px;
-  
 }
-.checkbox{
+.checkbox {
   padding: 12px;
   margin-top: 7px;
   background-color: #f8f7f6c9;
@@ -94,10 +92,9 @@ width: 100%;
 text-align: left;
 }
 
-.wholebox{
+.wholebox {
   background-color: #f8f7f6c9;
 }
-
 
 label {
   padding-right: 0.5em;
@@ -105,9 +102,9 @@ label {
   margin-top: 0px;
   /*border: 1px solid rgba(0,0,0,.15);*/
 }
-
+/* where main image on search page is displayed*/
 .jumbotron {
-  background-image: url("/images/allergybackgroundfinal.png"); 
+  background-image: url("/images/allergybackgroundfinal.png");
   display: block;
   object-fit: scale-down;
   width: 100%;
@@ -120,7 +117,8 @@ label {
   margin-right: 0;
   background-size: cover;
   color: black;
- }
+}
+/* project title*/
 
 h1 {
   text-align: center;
@@ -134,7 +132,6 @@ h1 {
   color: black;
   font-variant: small-caps;
 }
-
 
 .diet-boxes {
   margin-left: 2 em;
@@ -188,27 +185,26 @@ img {
 
 }*/
 .button {
-    background:#f8f8f8;
-    background: solid;
-    text-rendering: auto;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: center;
-    align-items: flex-start;
-    cursor: default;
-    box-sizing: border-box;
-    margin: 0em;
-    font: 400 20px system-ui;
-    padding: 0;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
-    border-image: initial;
-    
+  background: #f8f8f8;
+  background: solid;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: default;
+  box-sizing: border-box;
+  margin: 0em;
+  font: 400 20px system-ui;
+  padding: 0;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+  border-image: initial;
 }
 
 .searchpart {
@@ -218,6 +214,7 @@ img {
   float: left;
   margin-top: 9px;
 }
+
 .form-control, .input {
   height: 34px;
   width: 68%;
@@ -226,7 +223,6 @@ img {
 .restrictions {
   text-align: center;
 }
-
 
 body h1 > span {
   text-transform: none;
@@ -337,23 +333,24 @@ body input:checked ~ nav > ul > li {
   transform: translate(-50%, -50%);
 }
 
-.fa-search{
-  padding: 1px .5em 1px .5em ;
+.fa-search {
+  padding: 1px 0.5em 1px 0.5em;
 }
 
-button{
-  border: 1px solid rgba(0,0,0,.15);
+button {
+  border: 1px solid rgba(0, 0, 0, 0.15);
   outline: inset;
   background: #f8f8f8;
   padding: 4px;
   margin-left: -8px;
-  }
+}
 
-.recipe-info{
+.recipe-info {
   padding: 1px;
 }
 
-.recipe-source, h4{
+.recipe-source,
+h4 {
   font-family: Poppins-Regular;
   font-size: 14px;
   line-height: 1.7;
@@ -364,24 +361,23 @@ button{
   position: absolute;
 }
 
-.fa-heart{
+.fa-heart {
   padding-left: 1px;
   padding-right: 4px;
   font-size: 15px;
   color: #b05e5e;
 }
 
-.favorites-star{
+.favorites-star {
   margin: 0 !important;
-
 }
 
-.dietary-list{
+.dietary-list {
   list-style-type: solid;
   width: 150%;
 }
 
-.fa-check{
+.fa-check {
   color: gray;
 }
 
@@ -390,9 +386,14 @@ button{
   line-height: 2em;
   padding-left: 7px;
   padding-right: 34px;
+}
+
+
+
   width: 231px;
 
 }
+
 
 h6{
   font-family: Arial, Helvetica, sans-serif;
@@ -427,4 +428,13 @@ h7{
   position: relative;
   left: 46%;
   width: 25px;
+}
+
+/* need these for the modal */
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
 }
